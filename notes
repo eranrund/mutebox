@@ -1,0 +1,2 @@
+openocd -f board/stm32f4discovery.cfg
+script ../../../etc/openocd/scripts/STM32F4xx_upload.script
