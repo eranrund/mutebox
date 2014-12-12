@@ -1,2 +1,5 @@
 gcc-arm-none-eabi-4_7-2013q3/
 mutebox/project_build/
+*.swp
+/tags
+/mutebox/project.hex

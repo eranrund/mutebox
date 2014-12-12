@@ -11,8 +11,8 @@
 #define _MIOS32_CONFIG_H
 
 // The boot message which is print during startup and returned on a SysEx query
-#define MIOS32_LCD_BOOT_MSG_LINE1 "App. Template"
-#define MIOS32_LCD_BOOT_MSG_LINE2 "(C) 2009 <your name>"
+#define MIOS32_LCD_BOOT_MSG_LINE1 "MuteBox"
+#define MIOS32_LCD_BOOT_MSG_LINE2 "(C) 2014 <Eran Rundstein>"
 
 
 #endif /* _MIOS32_CONFIG_H */
