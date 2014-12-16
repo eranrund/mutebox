@@ -14,7 +14,7 @@ LCD       =     $(MIOS32_LCD)
 # Source Files, include paths and libraries
 ################################################################################
 
-THUMB_SOURCE    = app.c
+THUMB_SOURCE    = app.c mb_mgr.c mb_applet_md_mutes.c
 
 # (following source stubs not relevant for Cortex M3 derivatives)
 THUMB_AS_SOURCE =
@@ -49,6 +49,9 @@ include $(MIOS32_PATH)/programming_models/traditional/programming_model.mk
 
 # application specific LCD driver (selected via makefile variable)
 include $(MIOS32_PATH)/modules/app_lcd/$(LCD)/app_lcd.mk
+
+# AINSER driver
+include $(MIOS32_PATH)/modules/ainser/ainser.mk
 
 # common make rules
 # Please keep this include statement at the end of this Makefile. Add new modules above.

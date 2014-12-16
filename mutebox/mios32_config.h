@@ -15,4 +15,8 @@
 #define MIOS32_LCD_BOOT_MSG_LINE2 "(C) 2014 <Eran Rundstein>"
 
 
+#define MIOS32_SRIO_NUM_SR 1
+#define AINSER_NUM_MODULES 1
+
+
 #endif /* _MIOS32_CONFIG_H */

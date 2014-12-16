@@ -16,7 +16,53 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #include <mios32.h>
+#include <string.h>
+
+#include <ainser.h>
 #include "app.h"
+
+
+// include everything FreeRTOS related
+#include <FreeRTOS.h>
+#include <portmacro.h>
+#include <task.h>
+#include <queue.h>
+#include <semphr.h>
+
+#include "mb_mgr.h"
+#include "mb_applet_md_mutes.h"
+
+
+#define PRIORITY_TASK_AINSER_SCAN ( tskIDLE_PRIORITY + 3 )
+
+static void APP_AINSER_NotifyChange(u32 module, u32 pin, u32 pin_value)
+{
+    mb_mgr_notify_ui_pot_change(pin, pin_value);
+    /*if (pin == 1) {
+    MIOS32_MIDI_SendDebugMessage("%d %d\n", pin, pin_value >> 5);
+        MIOS32_MIDI_SendCC(UART0, Chn3, 16, pin_value >> 5);
+    }*/
+
+}
+static void TASK_AINSER_Scan(void *pvParameters)
+{
+  portTickType xLastExecutionTime;
+
+  // Initialise the xLastExecutionTime variable on task entry
+  xLastExecutionTime = xTaskGetTickCount();
+
+  while( 1 ) {
+    vTaskDelayUntil(&xLastExecutionTime, 1 / portTICK_RATE_MS);
+
+    // toggle Status LED
+    MIOS32_BOARD_LED_Set(1, ~MIOS32_BOARD_LED_Get());
+
+    // scan pins
+    AINSER_Handler(APP_AINSER_NotifyChange);
+
+  }
+}
+
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -26,6 +72,22 @@ void APP_Init(void)
 {
   // initialize all LEDs
   MIOS32_BOARD_LED_Init(0xffffffff);
+//  MIOS32_BOARD_LED_Set(0xf,1);
+
+//  MIOS32_DOUT_PinSet(0, 1);
+
+  // initialize the AINSER module(s)
+  AINSER_Init(0);
+
+  // Jitter Mon requires that deadband function is disabled
+  AINSER_DeadbandSet(0, 0);
+  AINSER_DeadbandSet(1, 0);
+
+  xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
+
+
+    mb_mgr_init();
+    mb_mgr_start(&mb_applet_md_mutes);
 }
 
 
@@ -48,7 +110,8 @@ void APP_Tick(void)
 {
   // PWM modulate the status LED (this is a sign of life)
   u32 timestamp = MIOS32_TIMESTAMP_Get();
-  MIOS32_BOARD_LED_Set(1, (timestamp % 20) <= ((timestamp / 100) % 10));
+  //MIOS32_BOARD_LED_Set(4, (timestamp % 20) <= ((timestamp / 100) % 10));
+  MIOS32_BOARD_LED_Set(1, ((timestamp % 20) <= ((timestamp / 100) % 10)) ? 1 : 0);
 }
 
 
@@ -92,6 +155,7 @@ void APP_SRIO_ServiceFinish(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_DIN_NotifyToggle(u32 pin, u32 pin_value)
 {
+    mb_mgr_notify_ui_btn_toggle(7 - pin, pin_value ? 0 : 1);
 }
 
 
@@ -110,4 +174,5 @@ void APP_ENC_NotifyChange(u32 encoder, s32 incrementer)
 /////////////////////////////////////////////////////////////////////////////
 void APP_AIN_NotifyChange(u32 pin, u32 pin_value)
 {
+//    MIOS32_MIDI_SendDebugMessage("%d %d\n", pin, pin_value);
 }
