@@ -3,3 +3,4 @@ mutebox/project_build/
 *.swp
 /tags
 /mutebox/project.hex
+/pyenv

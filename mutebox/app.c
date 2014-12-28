@@ -96,6 +96,34 @@ void APP_Init(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_Background(void)
 {
+  // clear LCD
+  MIOS32_LCD_Clear();
+  u32 last_s = 0;
+
+  // endless loop
+  while( 1 ) {
+    mios32_sys_time_t t = MIOS32_SYS_TimeGet();
+
+    if (!(t.seconds - last_s)) {
+        continue;
+    }
+
+    last_s = t.seconds;
+
+
+    // print system time
+    MIOS32_LCD_CursorSet(0, 0); // X, Y
+    MIOS32_LCD_PrintFormattedString("System Time");
+
+    MIOS32_LCD_CursorSet(0, 1); // X, Y
+    int hours = t.seconds / 3600;
+    int minutes = (t.seconds % 3600) / 60;
+    int seconds = (t.seconds % 3600) % 60;
+    int milliseconds = t.fraction_ms;
+    MIOS32_LCD_PrintFormattedString("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds);
+
+  }
+
 }
 
 
