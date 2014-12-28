@@ -6,6 +6,7 @@
 
 typedef struct {
     const char * name;
+    void (*init)(void);
     void (*ui_btn_toggle)(u32 btn, u32 val);
     void (*ui_pot_change)(u32 pot, u32 val);
 

@@ -11,6 +11,11 @@ void mb_mgr_start(const mb_applet_t * applet)
 {
     mb_mgr_cur_applet = applet;
     MIOS32_MIDI_SendDebugMessage("APPLET START %s\n", applet->name);
+
+    if (mb_mgr_cur_applet->init)
+    {
+        mb_mgr_cur_applet->init();
+    }
 }
 
 void mb_mgr_notify_ui_btn_toggle(u32 btn, u32 val)
