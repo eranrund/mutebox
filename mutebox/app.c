@@ -80,8 +80,8 @@ void APP_Init(void)
   AINSER_Init(0);
 
   // Jitter Mon requires that deadband function is disabled
-  AINSER_DeadbandSet(0, 0);
-  AINSER_DeadbandSet(1, 0);
+  AINSER_DeadbandSet(0, 16);
+  AINSER_DeadbandSet(1, 16);
 
   xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
 

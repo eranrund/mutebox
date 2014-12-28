@@ -29,6 +29,7 @@ void mb_mgr_notify_ui_btn_toggle(u32 btn, u32 val)
 
 void mb_mgr_notify_ui_pot_change(u32 pot, u32 val)
 {
+    if (pot != 1) return; // TODO 
     MIOS32_MIDI_SendDebugMessage("UI POT %d %d\n", pot, val);
     if (mb_mgr_cur_applet->ui_pot_change)
     {
