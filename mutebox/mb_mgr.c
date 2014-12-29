@@ -12,6 +12,11 @@ void mb_mgr_start(const mb_applet_t * applet)
     mb_mgr_cur_applet = applet;
     MIOS32_MIDI_SendDebugMessage("APPLET START %s\n", applet->name);
 
+    MIOS32_LCD_Clear();
+    MIOS32_LCD_CursorSet(0, 0);
+    MIOS32_LCD_PrintFormattedString(mb_mgr_cur_applet->name);
+
+
     if (mb_mgr_cur_applet->init)
     {
         mb_mgr_cur_applet->init();
@@ -42,6 +47,15 @@ void mb_mgr_background(void)
     if (mb_mgr_cur_applet->background)
     {
         mb_mgr_cur_applet->background();
+    }
+}
+
+void mb_mgr_notify_scs_btn_toggle(u32 btn, u32 val)
+{
+    MIOS32_MIDI_SendDebugMessage("SCS BTN %d %d\n", btn, val);
+    if (mb_mgr_cur_applet->scs_btn_toggle)
+    {
+        mb_mgr_cur_applet->scs_btn_toggle(btn, val);
     }
 }
 

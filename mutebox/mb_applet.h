@@ -10,7 +10,7 @@ typedef struct {
     void (*background)(void);
     void (*ui_btn_toggle)(u32 btn, u32 val);
     void (*ui_pot_change)(u32 pot, u32 val);
-
+    void (*scs_btn_toggle)(u32 btn, u32 val);
 } mb_applet_t;
 
 

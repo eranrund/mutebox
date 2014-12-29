@@ -14,7 +14,7 @@ LCD       =     $(MIOS32_LCD)
 # Source Files, include paths and libraries
 ################################################################################
 
-THUMB_SOURCE    = app.c mb_mgr.c mb_applet_md_mutes.c
+THUMB_SOURCE    = app.c mb_mgr.c mb_applet_md_mutes.c mb_applet_md_mutes_setup.c md.c
 
 # (following source stubs not relevant for Cortex M3 derivatives)
 THUMB_AS_SOURCE =

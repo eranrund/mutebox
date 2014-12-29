@@ -5,10 +5,14 @@ import time
 import logging
 import curses
 from rtmidi.midiutil import open_midiport
+from rtmidi.midiconstants import *
 
 
 log = logging.getLogger("midifilter")
 stdscr = curses.initscr()
+curses.noecho()
+curses.cbreak()
+
 
 begin_x = 20; begin_y = 7
 LCD_W = 20
@@ -88,24 +92,33 @@ class MidiDispatcher(threading.Thread):
 
 
 midiin, inport_name = open_midiport('USB MIDI 4x4 Port 4', "input")
+midiout, outport_name = open_midiport('USB MIDI 4x4 Port 4', "output")
 logging.basicConfig(format="%(name)s: %(levelname)s - %(message)s", level=logging.DEBUG if 0 else logging.WARNING,)
-dispatcher = MidiDispatcher(midiin, None)
+dispatcher = MidiDispatcher(midiin, midiout)
 
 print("Entering main loop. Press Control-C to exit.")
 try:
     dispatcher.start()
     while True:
-        time.sleep(1)
-except KeyboardInterrupt:
+        c = stdscr.getch()
+        if c == ord('q'):
+            raise KeyboardInterrupt()
+        elif c in map(ord, list('0123456')):
+            n = c - ord('0') - 1
+            midiout.send_message([CONTROL_CHANGE | 0, 0, n])
+
+except:
     dispatcher.stop()
     dispatcher.join()
     print('')
+    import traceback; traceback.print_exc()
 finally:
     print("Exit.")
 
     midiin.close_port()
     #midiout.close_port()
 
+    curses.nocbreak(); stdscr.keypad(0); curses.echo()
     curses.endwin()
     del midiin
 #    del midiout

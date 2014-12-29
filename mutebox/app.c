@@ -159,6 +159,33 @@ void APP_MIDI_Tick(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_MIDI_NotifyPackage(mios32_midi_port_t port, mios32_midi_package_t midi_package)
 {
+    if (port == USB3) {
+        switch (midi_package.event)
+        {
+            case CC:
+                switch (midi_package.value1)
+                {
+                    case 0:
+                        mb_mgr_notify_scs_btn_toggle(midi_package.value2, 1);
+                        break;
+
+                    default:
+                        MIOS32_MIDI_SendDebugMessage("SCS ???\n");
+                        break;
+                }
+                break;
+
+            default:
+                MIOS32_MIDI_SendDebugMessage("%d %d %d %d %d %d\n",
+                    midi_package.type,
+                    midi_package.cable,
+                    midi_package.chn,
+                    midi_package.event,
+                    midi_package.value1,
+                    midi_package.value2);
+                break;
+        }
+    }
 }
 
 
