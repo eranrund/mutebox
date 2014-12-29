@@ -14,8 +14,6 @@ void mb_mgr_start(const mb_applet_t * applet)
 
     MIOS32_LCD_Clear();
     MIOS32_LCD_CursorSet(0, 0);
-    MIOS32_LCD_PrintFormattedString(mb_mgr_cur_applet->name);
-
 
     if (mb_mgr_cur_applet->init)
     {

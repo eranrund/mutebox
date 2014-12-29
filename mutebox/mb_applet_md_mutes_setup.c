@@ -6,6 +6,8 @@ static void mb_applet_md_mutes_setup_init(void)
 {
     int i;
 
+    MIOS32_LCD_PrintFormattedString(mb_mgr_cur_applet->name);
+
     for (i = 0; i < 16; ++i)
     {
        MIOS32_DOUT_PinSet(i, 0);

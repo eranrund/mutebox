@@ -24,16 +24,18 @@ static const mb_applet_md_mutes_patch default_patch =
     }
 };
 
-static u16                              g_mutes = 0;
+static u16                              g_mutes;
 static mios32_midi_chn_t                g_base_chan;
 static mios32_midi_port_t               g_port;
-static const mb_applet_md_mutes_patch * g_patch = &default_patch;
+static const mb_applet_md_mutes_patch * g_patch;
+static u8                               g_pattern;
 
 // LCD display stuff
 static md_param_e g_lcd_last_changed_param = MD_PARAM_INVALID;
 static u32        g_lcd_last_changed_param_at = 0;
 static u32        g_lcd_last_changed_param_val = 0;
 static u8         g_lcd_last_changed_param_sound = 0;
+static u8         g_lcd_force_update = 0;
 
 
 static void mb_applet_md_mutes_send_cc(u8 sound, u8 param, u8 val)
@@ -61,23 +63,31 @@ static void mb_applet_md_mutes_sync_hw(void)
         mb_applet_md_mutes_send_cc(i, MD_PARAM_MUTE, (g_mutes & (1 << i)) ? 1 : 0);
         MIOS32_DOUT_PinSet(i, (g_mutes & (1 << i)) ? 0 : 1);
     }
+
+    MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_pattern);
 }
 
 static void mb_applet_md_mutes_init(void)
 {
-    g_base_chan = Chn3;
-    g_port      = UART0;
+    static u8 first_time = 1;
 
-    //this fucks up app resume when switching to setup and back, ugh
-    //g_mutes     = 0;
-    //g_patch     = &default_patch;
+    if (first_time)
+    {
+        g_base_chan = Chn3;
+        g_port      = UART0;
+        g_mutes     = 0;
+        g_patch     = &default_patch;
+        g_pattern   = 0;
+
+        mb_applet_md_mutes_sync_hw();
+
+        first_time = 0;
+    }
 
     g_lcd_last_changed_param = MD_PARAM_INVALID;
     g_lcd_last_changed_param_at = 0;
     g_lcd_last_changed_param_val = 0;
     g_lcd_last_changed_param_sound = 0;
-
-    mb_applet_md_mutes_sync_hw();
 }
 
 static void mb_applet_md_mutes_background(void)
@@ -110,12 +120,13 @@ static void mb_applet_md_mutes_background(void)
         mios32_sys_time_t t = MIOS32_SYS_TimeGet();
         static u32 last_s = 0;
         
-        if ((t.seconds - last_s) > 0)
+        if (((t.seconds - last_s) > 0) || g_lcd_force_update)
         {
             last_s = t.seconds;
+            g_lcd_force_update = 0;
 
             MIOS32_LCD_CursorSet(0, 0);
-            MIOS32_LCD_PrintFormattedString(mb_mgr_cur_applet->name);
+            MIOS32_LCD_PrintFormattedString("%c%02d", 'A' + (g_pattern / 16), 1 + (g_pattern % 16));
 
             MIOS32_LCD_CursorSet(0, 1); // X, Y
             int hours = t.seconds / 3600;
@@ -181,6 +192,19 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
     switch (btn)
     {
         case 0:
+            g_pattern = (g_pattern + 1) % 128;
+            g_lcd_force_update = 1;
+            MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_pattern);
+            break;
+
+        case 1:
+            g_pattern = (g_pattern == 0) ? 127 : (g_pattern - 1);
+            g_lcd_force_update = 1;
+            MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_pattern);
+            break;
+
+
+        case 5:
             mb_mgr_start(&mb_applet_md_mutes_setup);
             break;
     }
