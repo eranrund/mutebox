@@ -35,5 +35,7 @@ typedef enum {
 
 extern const char * const md_sound_names[];
 const char * md_param_name(md_param_e param);
+md_param_e md_get_next_param(md_param_e p);
+md_param_e md_get_prev_param(md_param_e p);
 
 #endif

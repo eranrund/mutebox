@@ -1,8 +1,9 @@
+#include <string.h>
 #include "mb_applet_md_mutes.h"
 #include "mb_applet_md_mutes_setup.h"
 #include "mb_mgr.h"
 
-static const mb_applet_md_mutes_patch default_patch =
+static const mb_applet_md_mutes_patch_t default_patch =
 {
     .pots = {
         {.param1 = MD_PARAM_MACHINE_PARAM1, .param2 = MD_PARAM_MACHINE_PARAM2},
@@ -24,11 +25,13 @@ static const mb_applet_md_mutes_patch default_patch =
     }
 };
 
-static u16                              g_mutes;
-static mios32_midi_chn_t                g_base_chan;
-static mios32_midi_port_t               g_port;
-static const mb_applet_md_mutes_patch * g_patch;
-static u8                               g_pattern;
+// Global state
+mb_applet_md_mutes_state_t mb_applet_md_mutes_state;
+#define g_mutes (mb_applet_md_mutes_state.mutes)
+#define g_base_chan (mb_applet_md_mutes_state.base_chan)
+#define g_port (mb_applet_md_mutes_state.port)
+#define g_cur_patch (mb_applet_md_mutes_state.cur_patch)
+#define g_pattern (mb_applet_md_mutes_state.pattern)
 
 // LCD display stuff
 static md_param_e g_lcd_last_changed_param = MD_PARAM_INVALID;
@@ -76,8 +79,9 @@ static void mb_applet_md_mutes_init(void)
         g_base_chan = Chn3;
         g_port      = UART0;
         g_mutes     = 0;
-        g_patch     = &default_patch;
         g_pattern   = 0;
+
+        memcpy(&g_cur_patch, &default_patch, sizeof(mb_applet_md_mutes_patch_t));
 
         mb_applet_md_mutes_sync_hw();
 
@@ -165,12 +169,12 @@ static void mb_applet_md_mutes_ui_pot_change(u32 pot, u32 val)
 
     if (pot < 8)
     {
-        p = g_patch->pots[pot].param1;
+        p = g_cur_patch.pots[pot].param1;
     }
     else
     {
         pot -= 8;
-        p = g_patch->pots[pot].param2;
+        p = g_cur_patch.pots[pot].param2;
     }
 
     mb_applet_md_mutes_send_cc(pot, p, val);

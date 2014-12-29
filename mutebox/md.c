@@ -93,3 +93,43 @@ const char * md_param_name(md_param_e param)
     }
 }
 
+
+md_param_e md_get_next_param(md_param_e p)
+{
+    switch (p) {
+        case MD_PARAM_INVALID:
+            return MD_PARAM_LEVEL;
+
+        case MD_PARAM_LEVEL:
+            return MD_PARAM_MUTE;
+
+        case MD_PARAM_MUTE:
+            return MD_PARAM_MACHINE_PARAM1;
+
+        case MD_PARAM_LFO_SHAPE:
+            return MD_PARAM_LEVEL;
+
+        default:
+            return p + 1;
+    }
+}
+md_param_e md_get_prev_param(md_param_e p)
+{
+    switch (p) {
+        case MD_PARAM_INVALID:
+            return MD_PARAM_LFO_SHAPE;
+
+        case MD_PARAM_LEVEL:
+            return MD_PARAM_LFO_SHAPE;
+
+        case MD_PARAM_MUTE:
+            return MD_PARAM_LEVEL;
+
+        case MD_PARAM_MACHINE_PARAM1:
+            return MD_PARAM_MUTE;
+
+        default:
+            return p - 1;
+    }
+}
+
