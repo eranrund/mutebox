@@ -85,7 +85,6 @@ void APP_Init(void)
 
   xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
 
-
     mb_mgr_init();
     mb_mgr_start(&mb_applet_md_mutes);
 }

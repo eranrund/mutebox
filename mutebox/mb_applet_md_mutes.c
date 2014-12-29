@@ -1,4 +1,7 @@
 #include <string.h>
+#include <mios32.h>
+#include <eeprom.h>
+
 #include "mb_applet_md_mutes.h"
 #include "mb_applet_md_mutes_setup.h"
 #include "mb_mgr.h"
@@ -39,6 +42,7 @@ static u32        g_lcd_last_changed_param_at = 0;
 static u32        g_lcd_last_changed_param_val = 0;
 static u8         g_lcd_last_changed_param_sound = 0;
 static u8         g_lcd_force_update = 0;
+static u32        g_lcd_last_updated_at = 0;
 
 
 static void mb_applet_md_mutes_send_cc(u8 sound, u8 param, u8 val)
@@ -66,13 +70,96 @@ static void mb_applet_md_mutes_sync_hw(void)
         mb_applet_md_mutes_send_cc(i, MD_PARAM_MUTE, (g_mutes & (1 << i)) ? 1 : 0);
         MIOS32_DOUT_PinSet(i, (g_mutes & (1 << i)) ? 0 : 1);
     }
-
     MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_pattern);
+}
+
+static void mb_applet_md_mutes_patch_dump(mb_applet_md_mutes_patch_t * patch)
+{
+    MIOS32_MIDI_SendDebugMessage("flags: 0x%X mutes: 0x%X\n", patch->flags, patch->mutes);
+
+    MIOS32_MIDI_SendDebugMessage(
+        "%-6s %-6s %-6s %-6s %-6s %-6s %-6s %-6s\n",
+        md_sound_names[0],
+        md_sound_names[1],
+        md_sound_names[2],
+        md_sound_names[3],
+        md_sound_names[4],
+        md_sound_names[5],
+        md_sound_names[6],
+        md_sound_names[7]
+    );
+
+    MIOS32_MIDI_SendDebugMessage(
+        "%-6s %-6s %-6s %-6s %-6s %-6s %-6s %-6s\n",
+        md_param_name(patch->pots[0].param1),
+        md_param_name(patch->pots[1].param1),
+        md_param_name(patch->pots[2].param1),
+        md_param_name(patch->pots[3].param1),
+        md_param_name(patch->pots[4].param1),
+        md_param_name(patch->pots[5].param1),
+        md_param_name(patch->pots[6].param1),
+        md_param_name(patch->pots[7].param1)
+    );
+    MIOS32_MIDI_SendDebugMessage(
+        "%-6s %-6s %-6s %-6s %-6s %-6s %-6s %-6s\n",
+        md_param_name(patch->pots[0].param2),
+        md_param_name(patch->pots[1].param2),
+        md_param_name(patch->pots[2].param2),
+        md_param_name(patch->pots[3].param2),
+        md_param_name(patch->pots[4].param2),
+        md_param_name(patch->pots[5].param2),
+        md_param_name(patch->pots[6].param2),
+        md_param_name(patch->pots[7].param2)
+    );
+}
+
+
+
+static void mb_applet_md_mutes_patch_load(u8 patch_num)
+{
+    mb_applet_md_mutes_patch_t patch;
+    s16 *                      buf;
+    u32                        i;
+    u32                        base;
+
+    // TODO
+
+    buf  = (s16 *) &patch;
+    base = patch_num * sizeof(patch);
+    return;
+
+
+    for (i = 0; i < sizeof(patch); i += 2)
+    {
+        s32 val = EEPROM_Read(base + (i / 2));
+        buf[i / 2] = val;
+    }
+
+    MIOS32_MIDI_SendDebugMessage("loading patch %d\n", patch_num);
+    if ((patch.flags != 0xFFFF) && (patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_USED))
+    {
+        mb_applet_md_mutes_patch_dump(&patch);
+
+        memcpy(&(g_cur_patch.pots), &(patch.pots), sizeof(patch.pots));
+
+        if (patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES)
+        {
+            g_mutes = patch.mutes;
+            mb_applet_md_mutes_sync_hw();
+        }
+    }
+    else
+    {
+        MIOS32_MIDI_SendDebugMessage("patch unused\n");
+    }
 }
 
 static void mb_applet_md_mutes_init(void)
 {
     static u8 first_time = 1;
+
+    #define BUILD_BUG_ON(condition) ((void)sizeof(char[1 - 2*!!(condition)]))
+    BUILD_BUG_ON(sizeof(mb_applet_md_mutes_patch_t) != MB_APPLET_MD_MUTES_PATCH_SIZE);
 
     if (first_time)
     {
@@ -80,10 +167,11 @@ static void mb_applet_md_mutes_init(void)
         g_port      = UART0;
         g_mutes     = 0;
         g_pattern   = 0;
-
+        
         memcpy(&g_cur_patch, &default_patch, sizeof(mb_applet_md_mutes_patch_t));
 
         mb_applet_md_mutes_sync_hw();
+//        mb_applet_md_mutes_patch_load(0);
 
         first_time = 0;
     }
@@ -92,6 +180,9 @@ static void mb_applet_md_mutes_init(void)
     g_lcd_last_changed_param_at = 0;
     g_lcd_last_changed_param_val = 0;
     g_lcd_last_changed_param_sound = 0;
+    g_lcd_last_updated_at = 0;
+
+    mb_applet_md_mutes_sync_hw();
 }
 
 static void mb_applet_md_mutes_background(void)
@@ -122,11 +213,10 @@ static void mb_applet_md_mutes_background(void)
 
     {
         mios32_sys_time_t t = MIOS32_SYS_TimeGet();
-        static u32 last_s = 0;
         
-        if (((t.seconds - last_s) > 0) || g_lcd_force_update)
+        if (((t.seconds - g_lcd_last_updated_at) > 0) || g_lcd_force_update)
         {
-            last_s = t.seconds;
+            g_lcd_last_updated_at = t.seconds;
             g_lcd_force_update = 0;
 
             MIOS32_LCD_CursorSet(0, 0);
@@ -207,6 +297,9 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
             MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_pattern);
             break;
 
+        case 2:
+            mb_applet_md_mutes_patch_dump(&g_cur_patch);
+            break;
 
         case 5:
             mb_mgr_start(&mb_applet_md_mutes_setup);

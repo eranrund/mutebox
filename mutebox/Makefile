@@ -53,6 +53,9 @@ include $(MIOS32_PATH)/modules/app_lcd/$(LCD)/app_lcd.mk
 # AINSER driver
 include $(MIOS32_PATH)/modules/ainser/ainser.mk
 
+# EEPROM emulation
+include $(MIOS32_PATH)/modules/eeprom/eeprom.mk
+
 # common make rules
 # Please keep this include statement at the end of this Makefile. Add new modules above.
 include $(MIOS32_PATH)/include/makefile/common.mk
