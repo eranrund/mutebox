@@ -8,6 +8,7 @@ void mb_mgr_init(void);
 void mb_mgr_start(const mb_applet_t * applet);
 void mb_mgr_notify_ui_btn_toggle(u32 btn, u32 val);
 void mb_mgr_notify_ui_pot_change(u32 pot, u32 val);
+void mb_mgr_background(void);
 
 #endif
 

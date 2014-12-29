@@ -96,6 +96,11 @@ void APP_Init(void)
 /////////////////////////////////////////////////////////////////////////////
 void APP_Background(void)
 {
+    mb_mgr_background();
+} 
+
+/*
+
   // clear LCD
   MIOS32_LCD_Clear();
   u32 last_s = 0;
@@ -121,11 +126,7 @@ void APP_Background(void)
     int seconds = (t.seconds % 3600) % 60;
     int milliseconds = t.fraction_ms;
     MIOS32_LCD_PrintFormattedString("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds);
-
-  }
-
-}
-
+*/
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called each mS from the main task which also handles DIN, ENC

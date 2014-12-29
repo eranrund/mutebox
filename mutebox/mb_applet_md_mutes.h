@@ -4,6 +4,7 @@
 #include "mb_applet.h"
 
 typedef enum {
+    MD_PARAM_INVALID = 0,
     MD_PARAM_LEVEL = 8,
     MD_PARAM_MUTE = 12,
     MD_PARAM_MACHINE_PARAM1 = 16,

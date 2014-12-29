@@ -36,3 +36,12 @@ void mb_mgr_notify_ui_pot_change(u32 pot, u32 val)
         mb_mgr_cur_applet->ui_pot_change(pot, val);
     }
 }
+
+void mb_mgr_background(void)
+{
+    if (mb_mgr_cur_applet->background)
+    {
+        mb_mgr_cur_applet->background();
+    }
+}
+

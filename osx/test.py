@@ -46,6 +46,7 @@ class MidiDispatcher(threading.Thread):
         self.queue.put((message, self._wallclock))
 
     def run(self):
+        global lcd_buf
         log.debug("Attaching MIDI input callback handler.")
         self.midiin.set_callback(self)
         lcd_cursor = 0
@@ -69,7 +70,11 @@ class MidiDispatcher(threading.Thread):
                         lcd_cursor += 1
                 elif ch == 0xe1:
                     # CMD
-                    if v & 0x80:
+                    if v == 0x01:
+                        lcd_cursor = 0
+                        lcd_buf = [' '] * len(lcd_buf)
+
+                    elif v & 0x80:
                         # SET CURSOR
                         lcd_cursor = v & 0x7f 
                     #print 'CMD', hex(v)
