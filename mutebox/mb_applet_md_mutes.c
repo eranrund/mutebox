@@ -5,6 +5,7 @@
 #include "mb_applet_md_mutes.h"
 #include "mb_applet_md_mutes_setup.h"
 #include "mb_mgr.h"
+#include "mb_seq.h"
 
 static const mb_applet_md_mutes_patch_t default_patch =
 {
@@ -307,12 +308,28 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
     }
 }
 
+static void mb_applet_md_mutes_seq_tick(u32 bpm_tick)
+{
+    u8 step_pos = mb_seq_get_step_pos();
+    char buf[] = "....";
+
+    if ((step_pos % 4) == 0)
+    {
+        buf[step_pos / 4] = 'o';
+        MIOS32_LCD_CursorSet(15, 0);
+        MIOS32_LCD_PrintString(buf);
+    }
+}
+
 const mb_applet_t mb_applet_md_mutes =
 {
     .name           = "MD MUTES",
     .init           = mb_applet_md_mutes_init,
     .background     = mb_applet_md_mutes_background,
+
     .ui_btn_toggle  = mb_applet_md_mutes_ui_btn_toggle,
     .ui_pot_change  = mb_applet_md_mutes_ui_pot_change,
     .scs_btn_toggle = mb_applet_md_mutes_scs_btn_toggle,
+
+    .seq_tick       = mb_applet_md_mutes_seq_tick,
 };

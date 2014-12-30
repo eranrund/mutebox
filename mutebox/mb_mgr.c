@@ -89,3 +89,64 @@ void mb_mgr_notify_scs_btn_toggle(u32 btn, u32 val)
     MUTEX_GIVE;
 }
 
+
+void mb_mgr_notify_seq_stop(void)
+{
+    MUTEX_TAKE;
+
+    if (mb_mgr_cur_applet->seq_stop)
+    {
+        mb_mgr_cur_applet->seq_stop();
+    }
+
+    MUTEX_GIVE;
+}
+
+void mb_mgr_notify_seq_cont(void)
+{
+    MUTEX_TAKE;
+
+    if (mb_mgr_cur_applet->seq_cont)
+    {
+        mb_mgr_cur_applet->seq_cont();
+    }
+
+    MUTEX_GIVE;
+}
+
+void mb_mgr_notify_seq_start(void)
+{
+    MUTEX_TAKE;
+
+    if (mb_mgr_cur_applet->seq_start)
+    {
+        mb_mgr_cur_applet->seq_start();
+    }
+
+    MUTEX_GIVE;
+}
+
+void mb_mgr_notify_seq_new_song_pos(u32 new_song_pos)
+{
+    MUTEX_TAKE;
+
+    if (mb_mgr_cur_applet->seq_new_song_pos)
+    {
+        mb_mgr_cur_applet->seq_new_song_pos(new_song_pos);
+    }
+
+    MUTEX_GIVE;
+}
+
+void mb_mgr_notify_seq_tick(u32 bpm_tick)
+{
+    MUTEX_TAKE;
+
+    if (mb_mgr_cur_applet->seq_tick)
+    {
+        mb_mgr_cur_applet->seq_tick(bpm_tick);
+    }
+
+    MUTEX_GIVE;
+}
+

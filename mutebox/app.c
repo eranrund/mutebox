@@ -19,6 +19,8 @@
 #include <string.h>
 
 #include <ainser.h>
+#include <seq_bpm.h>
+#include <seq_midi_out.h>
 #include "app.h"
 
 
@@ -31,9 +33,11 @@
 
 #include "mb_mgr.h"
 #include "mb_applet_md_mutes.h"
+#include "mb_seq.h"
 
 
 #define PRIORITY_TASK_AINSER_SCAN ( tskIDLE_PRIORITY + 3 )
+#define PRIORITY_TASK_SEQ		( tskIDLE_PRIORITY + 4 )
 
 static void APP_AINSER_NotifyChange(u32 module, u32 pin, u32 pin_value)
 {
@@ -64,6 +68,34 @@ static void TASK_AINSER_Scan(void *pvParameters)
 }
 
 
+static s32 NOTIFY_MIDI_Rx(mios32_midi_port_t port, u8 midi_byte)
+{
+  // here we could filter a certain port
+  // The BPM generator will deliver inaccurate results if MIDI clock 
+  // is received from multiple ports
+  SEQ_BPM_NotifyMIDIRx(midi_byte);
+
+  return 0; // no error, no filtering
+}
+
+static void TASK_SEQ(void *pvParameters)
+{
+  portTickType xLastExecutionTime;
+
+  // Initialise the xLastExecutionTime variable on task entry
+  xLastExecutionTime = xTaskGetTickCount();
+
+  while( 1 ) {
+    vTaskDelayUntil(&xLastExecutionTime, 1 / portTICK_RATE_MS);
+
+    // execute sequencer handler
+    mb_seq_handler();
+
+    // send timestamped MIDI events
+    SEQ_MIDI_OUT_Handler();
+  }
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // This hook is called after startup to initialize the application
@@ -85,8 +117,17 @@ void APP_Init(void)
 
   xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
 
+    // initialize MIDI handler
+    SEQ_MIDI_OUT_Init(0);
+    mb_seq_init();
+    MIOS32_MIDI_DirectRxCallback_Init(NOTIFY_MIDI_Rx);
+    xTaskCreate(TASK_SEQ, (signed portCHAR *)"SEQ", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_SEQ, NULL);
+
     mb_mgr_init();
     mb_mgr_start(&mb_applet_md_mutes);
+
+SEQ_BPM_Start();
+
 }
 
 
