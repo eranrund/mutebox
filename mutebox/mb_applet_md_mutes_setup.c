@@ -4,6 +4,7 @@
 
 static u8 g_selected_sound;
 static u8 g_selected_pot;
+static u32 g_last_blinked_at;
 
 static void mb_applet_md_mutes_setup_update_ui(void)
 {
@@ -30,6 +31,7 @@ static void mb_applet_md_mutes_setup_update_ui(void)
     }
 
     MIOS32_DOUT_PinSet(g_selected_sound, 1);
+    g_last_blinked_at = MIOS32_TIMESTAMP_Get();
 }
 
 static void mb_applet_md_mutes_setup_init(void)
@@ -42,7 +44,11 @@ static void mb_applet_md_mutes_setup_init(void)
 
 static void mb_applet_md_mutes_setup_background(void)
 {
-
+    if (MIOS32_TIMESTAMP_GetDelay(g_last_blinked_at) >= 500)
+    {
+        g_last_blinked_at = MIOS32_TIMESTAMP_Get();
+        MIOS32_DOUT_PinSet(g_selected_sound, !MIOS32_DOUT_PinGet(g_selected_sound));
+    }
 }
 
 static void mb_applet_md_mutes_setup_ui_btn_toggle(u32 btn, u32 val)
@@ -64,12 +70,20 @@ static void mb_applet_md_mutes_setup_ui_btn_toggle(u32 btn, u32 val)
 
 static void mb_applet_md_mutes_setup_ui_pot_change(u32 pot, u32 val)
 {
-
+    // TODO
+    /*
+    if ((pot != g_selected_sound) || (g_selected_pot != 1))
+    {
+        g_selected_sound = pot;
+        g_selected_pot = 1;
+        mb_applet_md_mutes_setup_update_ui();
+    }
+    */
 }
 
 static void mb_applet_md_mutes_setup_scs_btn_toggle(u32 btn, u32 val)
 {
-    md_param_e * p;
+    u8 * p;
 
     if (val != 1)
     {
