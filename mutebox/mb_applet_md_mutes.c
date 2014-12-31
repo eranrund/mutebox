@@ -39,6 +39,7 @@ mb_applet_md_mutes_state_t mb_applet_md_mutes_state;
 #define g_cur_patch (mb_applet_md_mutes_state.cur_patch)
 #define g_pattern (mb_applet_md_mutes_state.pattern)
 #define g_next_pattern (mb_applet_md_mutes_state.next_pattern)
+#define g_need_next_pattern (mb_applet_md_mutes_state.need_next_pattern)
 
 // LCD display stuff
 static md_param_e g_lcd_last_changed_param = MD_PARAM_INVALID;
@@ -184,7 +185,7 @@ static void mb_applet_md_mutes_queue_next_pattern(u8 pattern)
     g_lcd_blink_state = 1;
     if (MB_SEQ_STOPPED == mb_seq_get_state())
     {
-        g_pattern = g_next_pattern;
+        g_need_next_pattern = 1;
     }
     MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_next_pattern);
 }
@@ -202,10 +203,13 @@ static void mb_applet_md_mutes_init(void)
         g_port      = UART0;
         g_mutes     = 0;
         g_pattern   = 0;
+        g_next_pattern = 0;
+        g_need_next_pattern = 1;
         
         memcpy(&g_cur_patch, &default_patch, sizeof(mb_applet_md_mutes_patch_t));
 
-        mb_applet_md_mutes_sync_hw();
+
+//        mb_applet_md_mutes_sync_hw();
 //        mb_applet_md_mutes_patch_load(0);
 
         first_time = 0;
@@ -246,7 +250,33 @@ static void mb_applet_md_seq_to_lcd(void)
 static void mb_applet_md_mutes_background(void)
 {
     u32 t = MIOS32_TIMESTAMP_Get();
+    mb_applet_md_mutes_patch_t patch;
 
+    /////////////////////////////// Next pattern
+    if (g_need_next_pattern)
+    {
+        g_need_next_pattern = 0;
+        g_pattern = g_next_pattern;
+
+        if (0 == mb_applet_md_mutes_patch_load(g_pattern, &patch))
+        {
+            MIOS32_MIDI_SendDebugMessage("PATCH LOAD %d OK", g_pattern);
+            memcpy(&g_cur_patch, &patch, sizeof(patch));
+
+            if (g_cur_patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES)
+            {
+                g_mutes = g_cur_patch.mutes;                
+                mb_applet_md_mutes_sync_hw();
+            }
+        }
+        else
+        {
+            MIOS32_MIDI_SendDebugMessage("PATCH LOAD %d ERR", g_pattern);
+            g_cur_patch.flags &= ~(MB_APPLET_MD_MUTES_PATCH_FLAG_USED | MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES);
+        }
+    }
+
+    /////////////////////////////// LCD hell
     switch (mb_common_lcd_flash_status()) {
         case MB_LCD_NOT_FLASHING:
             break;
@@ -298,7 +328,12 @@ static void mb_applet_md_mutes_background(void)
             if (g_pattern == g_next_pattern)
             {
                 /* no pattern change is queued */
-                MIOS32_LCD_PrintFormattedString("%c%02d", 'A' + (g_pattern / 16), 1 + (g_pattern % 16));
+                MIOS32_LCD_PrintFormattedString(
+                    "%c%02d %c%c",
+                    'A' + (g_pattern / 16), 1 + (g_pattern % 16),
+                    (g_cur_patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_USED) ? '+' : ' ',
+                    (g_cur_patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES) ? 'M' : ' '
+                );
             }
             else
             {
@@ -444,8 +479,8 @@ static void mb_applet_md_mutes_seq_tick(u32 bpm_tick)
         (0 == (mb_seq_get_step_measure() % g_cur_patch.measures)) &&
         (g_pattern != g_next_pattern))
     {
-        g_pattern = g_next_pattern;
         g_lcd_force_update = 1;
+        g_need_next_pattern = 1;
     }
 }
 

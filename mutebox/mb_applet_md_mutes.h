@@ -32,6 +32,7 @@ typedef struct {
     mb_applet_md_mutes_patch_t cur_patch;
     u8                         pattern;
     u8                         next_pattern;
+    u8                         need_next_pattern;
 } mb_applet_md_mutes_state_t;
 
 
