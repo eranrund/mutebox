@@ -2,6 +2,7 @@
 #include <mios32.h>
 #include <eeprom.h>
 
+#include "mb_common.h"
 #include "mb_applet_md_mutes.h"
 #include "mb_applet_md_mutes_setup.h"
 #include "mb_mgr.h"
@@ -118,43 +119,62 @@ static void mb_applet_md_mutes_patch_dump(mb_applet_md_mutes_patch_t * patch)
     );
 }
 
-static void mb_applet_md_mutes_patch_load(u8 patch_num)
+static s32 mb_applet_md_mutes_patch_load(u8 num, mb_applet_md_mutes_patch_t * patch)
 {
-    mb_applet_md_mutes_patch_t patch;
-    s16 *                      buf;
-    u32                        i;
-    u32                        base;
+    s16 * buf;
+    u32   i;
+    u32   base;
 
-    // TODO
+    buf  = (s16 *) patch;
+    base = num * sizeof(*patch);
 
-    buf  = (s16 *) &patch;
-    base = patch_num * sizeof(patch);
-    return;
-
-
-    for (i = 0; i < sizeof(patch); i += 2)
+    for (i = 0; i < sizeof(*patch); i += 2)
     {
         s32 val = EEPROM_Read(base + (i / 2));
+        if (val < 0) {
+            val = 0;
+        }
+
         buf[i / 2] = val;
     }
 
-    MIOS32_MIDI_SendDebugMessage("loading patch %d\n", patch_num);
-    if ((patch.flags != 0xFFFF) && (patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_USED))
+    MIOS32_MIDI_SendDebugMessage("loading patch %d: %x\n", num, patch->flags);
+    if ((patch->flags != 0xFFFF) && (patch->flags & MB_APPLET_MD_MUTES_PATCH_FLAG_USED))
     {
-        mb_applet_md_mutes_patch_dump(&patch);
+        mb_applet_md_mutes_patch_dump(patch);
+        return 0;
+    }
 
-        memcpy(&(g_cur_patch.pots), &(patch.pots), sizeof(patch.pots));
+    return -1;
+}
 
-        if (patch.flags & MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES)
+static s32 mb_applet_md_mutes_patch_store(u8 num, const mb_applet_md_mutes_patch_t * patch)
+{
+    s32 ret;
+    int i;
+    int base;
+    const u16 * buf;
+
+    if ((0 == patch->flags) ||
+        (0xFFFF == patch->flags) ||
+        !(patch->flags & MB_APPLET_MD_MUTES_PATCH_FLAG_USED))
+    {
+        return -1;
+    }
+
+    buf  = (const u16 *) patch;
+    base = num * sizeof(mb_applet_md_mutes_patch_t);
+
+    for (i = 0; i < sizeof(mb_applet_md_mutes_patch_t) / 2; i++)
+    {
+        ret = EEPROM_Write(base + i, buf[i]);
+        if (0 > ret)
         {
-            g_mutes = patch.mutes;
-            mb_applet_md_mutes_sync_hw();
+            return ret;
         }
     }
-    else
-    {
-        MIOS32_MIDI_SendDebugMessage("patch unused\n");
-    }
+
+    return 0;
 }
 
 static void mb_applet_md_mutes_queue_next_pattern(u8 pattern)
@@ -226,6 +246,16 @@ static void mb_applet_md_seq_to_lcd(void)
 static void mb_applet_md_mutes_background(void)
 {
     u32 t = MIOS32_TIMESTAMP_Get();
+
+    switch (mb_common_lcd_flash_status()) {
+        case MB_LCD_NOT_FLASHING:
+            break;
+        case MB_LCD_FLASHING:
+            return;
+        case MB_LCD_DONE_FLASHING:
+            g_lcd_force_update = 1;
+            break;
+    }
 
     /* if a param has been changed recently we will be displaying it's value */
     if (g_lcd_last_changed_param != MD_PARAM_INVALID)
@@ -342,7 +372,9 @@ static void mb_applet_md_mutes_ui_pot_change(u32 pot, u32 val)
 
 static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
 {
-    MIOS32_MIDI_SendDebugMessage(" >> SCS BTN %d %d\n", btn, val);
+    int r;
+
+    //MIOS32_MIDI_SendDebugMessage(" >> SCS BTN %d %d\n", btn, val);
     if (val != 1)
     {
         return;
@@ -375,6 +407,22 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
             }
             break;
 
+        case 4:
+            g_cur_patch.mutes = g_mutes;
+            g_cur_patch.flags |= MB_APPLET_MD_MUTES_PATCH_FLAG_USED | MB_APPLET_MD_MUTES_PATCH_FLAG_HAS_MUTES;
+
+            r = mb_applet_md_mutes_patch_store(g_pattern, &g_cur_patch);
+
+            if (r == 0)
+            {
+                mb_common_lcd_flash_msg(1000, "%c%02d   SAVED", 'A' + (g_pattern / 16), 1 + (g_pattern % 16));
+            }
+            else
+            {
+                mb_common_lcd_flash_msg(1000, "%c%02d  ERR! %d", 'A' + (g_pattern / 16), 1 + (g_pattern % 16), r);
+            }
+
+            break;
 
         /* SETUP */
         case 5:

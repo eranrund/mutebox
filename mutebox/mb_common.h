@@ -14,6 +14,14 @@ extern xSemaphoreHandle xMIDIOUTSemaphore;
 
 void mb_common_init(void);
 
+typedef enum {
+    MB_LCD_NOT_FLASHING,
+    MB_LCD_FLASHING,
+    MB_LCD_DONE_FLASHING,
+} mb_common_lcd_flash_state_e;
+void mb_common_lcd_flash_msg(int msec, const char * fmt, ...);
+mb_common_lcd_flash_state_e mb_common_lcd_flash_status(void);
+
 
 #endif
 
