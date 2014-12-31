@@ -26,11 +26,18 @@ void mb_mgr_init(void)
 
 void mb_mgr_start(const mb_applet_t * applet)
 {
+    const mb_applet_t * old_applet = mb_mgr_cur_applet;
     mb_mgr_cur_applet = &mb_applet_empty;
+
+    MUTEX_TAKE;
+
+    if (old_applet->uninit)
+    {
+        old_applet->uninit();
+    }
 
     MIOS32_MIDI_SendDebugMessage("APPLET START %s\n", applet->name);
 
-    MUTEX_TAKE;
 
     MIOS32_LCD_Clear();
     MIOS32_LCD_CursorSet(0, 0);

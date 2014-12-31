@@ -157,30 +157,16 @@ static void mb_applet_md_mutes_patch_load(u8 patch_num)
     }
 }
 
-static void mb_applet_md_mutes_update_seq_lcd(u8 force)
+static void mb_applet_md_mutes_queue_next_pattern(u8 pattern)
 {
-    u8 step_pos = mb_seq_get_step_pos();
-    char buf[] = "....";
-
-    MIOS32_LCD_CursorSet(16, 0);
-
-    switch (mb_seq_get_state()) {
-        case MB_SEQ_STOPPED:
-            MIOS32_LCD_PrintString("STOP");
-            break;
-
-        case MB_SEQ_RUNNING:
-            if (force || ((step_pos % 4) == 0))
-            {
-                buf[mb_seq_get_step_measure() % g_cur_patch.measures] = '1' + (step_pos / 4);
-                MIOS32_LCD_PrintString(buf);
-            }
-            break;
-
-        default:
-            MIOS32_LCD_PrintString("WTF?");
-            break;
+    g_next_pattern = pattern;
+    g_lcd_force_update = 1;
+    g_lcd_blink_state = 1;
+    if (MB_SEQ_STOPPED == mb_seq_get_state())
+    {
+        g_pattern = g_next_pattern;
     }
+    MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_next_pattern);
 }
 
 static void mb_applet_md_mutes_init(void)
@@ -210,36 +196,56 @@ static void mb_applet_md_mutes_init(void)
     g_lcd_last_changed_param_val = 0;
     g_lcd_last_changed_param_sound = 0;
     g_lcd_last_updated_at = 0;
+    g_lcd_force_update = 1;
 
     mb_applet_md_mutes_sync_hw();
-    mb_applet_md_mutes_update_seq_lcd(1);
+}
+
+static void mb_applet_md_mutes_uninit(void)
+{
+    mb_applet_md_mutes_queue_next_pattern(g_pattern);
+}
+
+static void mb_applet_md_seq_to_lcd(void)
+{
+    u8 step_pos = mb_seq_get_step_pos();
+    char buf[] = "....";
+
+    MIOS32_LCD_CursorSet(16, 0);
+    if (mb_seq_get_state() == MB_SEQ_STOPPED)
+    {
+        MIOS32_LCD_PrintString("STOP");
+    }
+    else
+    {
+        buf[mb_seq_get_step_measure() % g_cur_patch.measures] = '1' + (step_pos / 4);
+        MIOS32_LCD_PrintString(buf);
+    }
 }
 
 static void mb_applet_md_mutes_background(void)
 {
-    u32 t;
-    
-    t = MIOS32_TIMESTAMP_Get();
+    u32 t = MIOS32_TIMESTAMP_Get();
 
+    /* if a param has been changed recently we will be displaying it's value */
     if (g_lcd_last_changed_param != MD_PARAM_INVALID)
     {
         if (0 == g_lcd_last_changed_param_at)
         {
             g_lcd_last_changed_param_at = t;
             MIOS32_LCD_Clear();
+            mb_applet_md_seq_to_lcd();
+            MIOS32_LCD_CursorSet(0,0);
             MIOS32_LCD_PrintFormattedString("%s", md_sound_names[g_lcd_last_changed_param_sound]);
             MIOS32_LCD_CursorSet(0,1);
             MIOS32_LCD_PrintFormattedString("%s %03d", md_param_name(g_lcd_last_changed_param), g_lcd_last_changed_param_val);
-
-            mb_applet_md_mutes_update_seq_lcd(1);
         }
         else if (MIOS32_TIMESTAMP_GetDelay(g_lcd_last_changed_param_at ) >= 500)
         {
             MIOS32_LCD_Clear();
+            mb_applet_md_seq_to_lcd();
             g_lcd_last_changed_param = MD_PARAM_INVALID;
             g_lcd_last_changed_param_at = 0;
-
-            mb_applet_md_mutes_update_seq_lcd(1);
         }
 
         if (g_lcd_last_changed_param != MD_PARAM_INVALID) {
@@ -247,13 +253,16 @@ static void mb_applet_md_mutes_background(void)
         }
     }
 
+    /* regular status display */
     {
-        
-        if ((MIOS32_TIMESTAMP_GetDelay(g_lcd_last_updated_at) >= 500) || g_lcd_force_update)
+        u32 periodic_redraw = MIOS32_TIMESTAMP_GetDelay(g_lcd_last_updated_at) >= 500;
+        if (periodic_redraw || g_lcd_force_update)
         {
-
-            g_lcd_last_updated_at = t;
             g_lcd_force_update = 0;
+            if (periodic_redraw) {
+                g_lcd_last_updated_at = t;
+                g_lcd_blink_state = !g_lcd_blink_state;
+            }
 
             MIOS32_LCD_CursorSet(0, 0);
             if (g_pattern == g_next_pattern)
@@ -267,14 +276,14 @@ static void mb_applet_md_mutes_background(void)
                 if (g_lcd_blink_state)
                 {
                     MIOS32_LCD_PrintFormattedString("%c%02d", 'A' + (g_next_pattern / 16), 1 + (g_next_pattern % 16));
-                    g_lcd_blink_state = 0;
                 }
                 else
                 {
                     MIOS32_LCD_PrintString("   ");
-                    g_lcd_blink_state = 1;
                 }
             }
+
+            mb_applet_md_seq_to_lcd();
 
             MIOS32_LCD_CursorSet(0, 1); // X, Y
             mios32_sys_time_t tt = MIOS32_SYS_TimeGet();
@@ -342,26 +351,12 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
     switch (btn)
     {
         case 0:
-            g_next_pattern = (g_next_pattern + 1) & 0x7F;
-            g_lcd_force_update = 1;
-            g_lcd_blink_state = 1;
-            if (MB_SEQ_STOPPED == mb_seq_get_state())
-            {
-                g_pattern = g_next_pattern;
-            }
-            MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_next_pattern);
+            mb_applet_md_mutes_queue_next_pattern((g_next_pattern + 1) & 0x7F);
             break;
 
         case 1:
-            g_next_pattern = (g_next_pattern - 1) & 0x7F;
-            g_lcd_force_update = 1;
-            g_lcd_blink_state = 1;
-            if (MB_SEQ_STOPPED == mb_seq_get_state())
-            {
-                g_pattern = g_next_pattern;
-            }
-            MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_next_pattern);
-            break;
+            mb_applet_md_mutes_queue_next_pattern((g_next_pattern - 1) & 0x7F);
+           break;
 
         case 2:
             mb_applet_md_mutes_patch_dump(&g_cur_patch);
@@ -390,8 +385,14 @@ static void mb_applet_md_mutes_scs_btn_toggle(u32 btn, u32 val)
 
 static void mb_applet_md_mutes_seq_tick(u32 bpm_tick)
 {
-    mb_applet_md_mutes_update_seq_lcd(0);
-    if ((0 == mb_seq_get_step_pos()) &&
+    u8 step_pos = mb_seq_get_step_pos();
+
+    if ((step_pos % 4) == 0)
+    {
+        g_lcd_force_update = 1;
+    }
+
+    if ((0 == step_pos) &&
         (0 == (mb_seq_get_step_measure() % g_cur_patch.measures)) &&
         (g_pattern != g_next_pattern))
     {
@@ -402,16 +403,14 @@ static void mb_applet_md_mutes_seq_tick(u32 bpm_tick)
 
 static void mb_applet_md_mutes_seq_stop(void)
 {
-    mb_applet_md_mutes_update_seq_lcd(0);
-    g_next_pattern = g_pattern;
-    g_lcd_force_update = 1;
-    MIOS32_MIDI_SendProgramChange(g_port, g_base_chan, g_next_pattern);
+    mb_applet_md_mutes_queue_next_pattern(g_pattern);
 }
 
 const mb_applet_t mb_applet_md_mutes =
 {
     .name           = "MD MUTES",
     .init           = mb_applet_md_mutes_init,
+    .uninit         = mb_applet_md_mutes_uninit,
     .background     = mb_applet_md_mutes_background,
 
     .ui_btn_toggle  = mb_applet_md_mutes_ui_btn_toggle,

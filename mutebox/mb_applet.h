@@ -7,6 +7,7 @@
 typedef struct {
     const char * name;
     void (*init)(void);
+    void (*uninit)(void);
     void (*background)(void);
 
     void (*ui_btn_toggle)(u32 btn, u32 val);
