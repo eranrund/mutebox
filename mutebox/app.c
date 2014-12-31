@@ -21,6 +21,7 @@
 #include <ainser.h>
 #include <seq_bpm.h>
 #include <seq_midi_out.h>
+#include <eeprom.h>
 #include "app.h"
 
 
@@ -31,6 +32,7 @@
 #include <queue.h>
 #include <semphr.h>
 
+#include "mb_common.h"
 #include "mb_mgr.h"
 #include "mb_applet_md_mutes.h"
 #include "mb_seq.h"
@@ -102,32 +104,25 @@ static void TASK_SEQ(void *pvParameters)
 /////////////////////////////////////////////////////////////////////////////
 void APP_Init(void)
 {
-  // initialize all LEDs
-  MIOS32_BOARD_LED_Init(0xffffffff);
-//  MIOS32_BOARD_LED_Set(0xf,1);
+    mb_common_init();
+    mb_mgr_init();
 
-//  MIOS32_DOUT_PinSet(0, 1);
+    MIOS32_BOARD_LED_Init(0xffffffff);
+    //EEPROM_Init(0);
+    
+    AINSER_Init(0);
+    AINSER_DeadbandSet(0, 16);
+    AINSER_DeadbandSet(1, 16);
+    xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
 
-  // initialize the AINSER module(s)
-  AINSER_Init(0);
-
-  // Jitter Mon requires that deadband function is disabled
-  AINSER_DeadbandSet(0, 16);
-  AINSER_DeadbandSet(1, 16);
-
-  xTaskCreate(TASK_AINSER_Scan, (signed portCHAR *)"AINSER_Scan", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_AINSER_SCAN, NULL);
-
-    // initialize MIDI handler
     SEQ_MIDI_OUT_Init(0);
     mb_seq_init();
     MIOS32_MIDI_DirectRxCallback_Init(NOTIFY_MIDI_Rx);
     xTaskCreate(TASK_SEQ, (signed portCHAR *)"SEQ", configMINIMAL_STACK_SIZE, NULL, PRIORITY_TASK_SEQ, NULL);
+//    SEQ_BPM_Start();
 
-    mb_mgr_init();
+    //
     mb_mgr_start(&mb_applet_md_mutes);
-
-SEQ_BPM_Start();
-
 }
 
 

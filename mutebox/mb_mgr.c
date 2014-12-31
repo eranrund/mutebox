@@ -1,5 +1,6 @@
 #include "mb_mgr.h"
 #include "mb_applet.h"
+#include "mb_applet_startup.h"
 
 #include <FreeRTOS.h>
 #include <portmacro.h>
@@ -11,7 +12,12 @@ xSemaphoreHandle mb_mgr_mutex;
 #define MUTEX_TAKE { while( xSemaphoreTakeRecursive(mb_mgr_mutex, (portTickType)1) != pdTRUE ); }
 #define MUTEX_GIVE { xSemaphoreGiveRecursive(mb_mgr_mutex); }
 
-const mb_applet_t * mb_mgr_cur_applet;
+const mb_applet_t mb_applet_empty =
+{
+    .name = "EMPTY",
+};
+
+const mb_applet_t * mb_mgr_cur_applet = &mb_applet_startup;
 
 void mb_mgr_init(void)
 {
@@ -20,7 +26,8 @@ void mb_mgr_init(void)
 
 void mb_mgr_start(const mb_applet_t * applet)
 {
-    mb_mgr_cur_applet = applet;
+    mb_mgr_cur_applet = &mb_applet_empty;
+
     MIOS32_MIDI_SendDebugMessage("APPLET START %s\n", applet->name);
 
     MUTEX_TAKE;
@@ -28,10 +35,12 @@ void mb_mgr_start(const mb_applet_t * applet)
     MIOS32_LCD_Clear();
     MIOS32_LCD_CursorSet(0, 0);
 
-    if (mb_mgr_cur_applet->init)
+    if (applet->init)
     {
-        mb_mgr_cur_applet->init();
+        applet->init();
     }
+
+    mb_mgr_cur_applet = applet;
 
     MUTEX_GIVE;
 }

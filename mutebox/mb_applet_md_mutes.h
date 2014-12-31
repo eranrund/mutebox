@@ -18,8 +18,9 @@ typedef struct {
 
     u16 mutes;
     u16 flags;
+    u8  measures;
 
-    u8 reserved[MB_APPLET_MD_MUTES_PATCH_SIZE - 36];
+    u8 reserved[MB_APPLET_MD_MUTES_PATCH_SIZE - 37];
 } mb_applet_md_mutes_patch_t;
 
 #pragma pack()
@@ -30,6 +31,7 @@ typedef struct {
     mios32_midi_port_t         port;
     mb_applet_md_mutes_patch_t cur_patch;
     u8                         pattern;
+    u8                         next_pattern;
 } mb_applet_md_mutes_state_t;
 
 
