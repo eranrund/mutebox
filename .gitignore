@@ -4,3 +4,4 @@ mutebox/project_build/
 /tags
 /mutebox/project.hex
 /pyenv
+*.pyc
