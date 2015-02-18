@@ -5,3 +5,5 @@ mutebox/project_build/
 /mutebox/project.hex
 /pyenv
 *.pyc
+*.s#?
+*.b#?
