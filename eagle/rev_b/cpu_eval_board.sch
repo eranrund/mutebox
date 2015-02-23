@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4532,8 +4532,6 @@ EC12E series with push-on switch</description>
 <part name="C2" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="2.2uF ESR &lt;2Ohm"/>
 <part name="U$4" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$5" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="C3" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="1uF"/>
-<part name="U$6" library="microbuilder" deviceset="GND" device=""/>
 <part name="C4" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="C5" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="C6" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
@@ -4724,8 +4722,6 @@ EC12E series with push-on switch</description>
 <instance part="C2" gate="G$1" x="10.16" y="144.78" rot="R180"/>
 <instance part="U$4" gate="G$1" x="12.7" y="137.16"/>
 <instance part="U$5" gate="G$1" x="5.08" y="111.76" rot="R90"/>
-<instance part="C3" gate="G$1" x="12.7" y="109.22" rot="R180"/>
-<instance part="U$6" gate="G$1" x="12.7" y="99.06"/>
 <instance part="C4" gate="G$1" x="22.86" y="162.56"/>
 <instance part="C5" gate="G$1" x="12.7" y="162.56"/>
 <instance part="C6" gate="G$1" x="2.54" y="162.56"/>
@@ -4755,7 +4751,7 @@ EC12E series with push-on switch</description>
 <instance part="PRTR5V0U2X1" gate="G$1" x="-6.35" y="210.82"/>
 <instance part="U$16" gate="G$1" x="-41.91" y="185.42"/>
 <instance part="U$17" gate="G$1" x="-44.45" y="193.04" rot="R90"/>
-<instance part="R6" gate="G$1" x="5.08" y="195.58" rot="R180"/>
+<instance part="R6" gate="G$1" x="-5.08" y="195.58" rot="R180"/>
 <instance part="R7" gate="G$1" x="-6.35" y="198.12" rot="R180"/>
 <instance part="C18" gate="G$1" x="44.45" y="190.5"/>
 <instance part="U$18" gate="G$1" x="44.45" y="184.15"/>
@@ -4864,10 +4860,7 @@ EC12E series with push-on switch</description>
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="VBAT"/>
 <pinref part="U$5" gate="G$1" pin="3.3V"/>
-<wire x1="7.62" y1="111.76" x2="12.7" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="P$2"/>
-<wire x1="12.7" y1="111.76" x2="35.56" y2="111.76" width="0.1524" layer="91"/>
-<junction x="12.7" y="111.76"/>
+<wire x1="7.62" y1="111.76" x2="35.56" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$9" gate="G$1" pin="3.3V"/>
@@ -4941,11 +4934,6 @@ EC12E series with push-on switch</description>
 <pinref part="U$4" gate="G$1" pin="GND"/>
 <wire x1="12.7" y1="139.7" x2="15.24" y2="139.7" width="0.1524" layer="91"/>
 <junction x="12.7" y="139.7"/>
-</segment>
-<segment>
-<pinref part="C3" gate="G$1" pin="P$1"/>
-<pinref part="U$6" gate="G$1" pin="GND"/>
-<wire x1="12.7" y1="101.6" x2="12.7" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="P$2"/>
@@ -5240,7 +5228,13 @@ EC12E series with push-on switch</description>
 <segment>
 <pinref part="U$14" gate="G$1" pin="D-"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="19.05" y1="195.58" x2="10.16" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="19.05" y1="195.58" x2="5.08" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="PRTR5V0U2X1" gate="G$1" pin="D1"/>
+<wire x1="5.08" y1="195.58" x2="0" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="-19.05" y1="208.28" x2="-19.05" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="-19.05" y1="203.2" x2="5.08" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="203.2" x2="5.08" y2="195.58" width="0.1524" layer="91"/>
+<junction x="5.08" y="195.58"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -5257,12 +5251,8 @@ EC12E series with push-on switch</description>
 <net name="USB_DM" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="0" y1="195.58" x2="-19.05" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="-19.05" y1="195.58" x2="-40.64" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="195.58" x2="-40.64" y2="195.58" width="0.1524" layer="91"/>
 <label x="-40.64" y="195.58" size="1.778" layer="95"/>
-<pinref part="PRTR5V0U2X1" gate="G$1" pin="D1"/>
-<wire x1="-19.05" y1="208.28" x2="-19.05" y2="195.58" width="0.1524" layer="91"/>
-<junction x="-19.05" y="195.58"/>
 </segment>
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="PA11"/>
