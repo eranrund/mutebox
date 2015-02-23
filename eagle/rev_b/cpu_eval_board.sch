@@ -4357,7 +4357,6 @@ EC12E series with push-on switch</description>
 <part name="C8" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="C9" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="C10" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C11" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="U$7" library="microbuilder" deviceset="GND" device=""/>
 <part name="C12" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="C13" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
@@ -4546,8 +4545,7 @@ EC12E series with push-on switch</description>
 <instance part="C8" gate="G$1" x="-17.78" y="162.56"/>
 <instance part="C9" gate="G$1" x="-27.94" y="162.56"/>
 <instance part="C10" gate="G$1" x="-38.1" y="162.56"/>
-<instance part="C11" gate="G$1" x="-48.26" y="162.56"/>
-<instance part="U$7" gate="G$1" x="-48.26" y="154.94"/>
+<instance part="U$7" gate="G$1" x="-38.1" y="156.21"/>
 <instance part="C12" gate="G$1" x="0" y="129.54"/>
 <instance part="C13" gate="G$1" x="0" y="116.84"/>
 <instance part="C14" gate="G$1" x="-5.08" y="132.08" rot="R180"/>
@@ -4646,7 +4644,6 @@ EC12E series with push-on switch</description>
 <junction x="35.56" y="165.1"/>
 <pinref part="STM32F407XX1" gate="G$1" pin="VDD"/>
 <junction x="35.56" y="167.64"/>
-<pinref part="C11" gate="G$1" pin="P$1"/>
 <wire x1="35.56" y1="167.64" x2="22.86" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="P$1"/>
 <junction x="22.86" y="167.64"/>
@@ -4667,8 +4664,6 @@ EC12E series with push-on switch</description>
 <junction x="-27.94" y="167.64"/>
 <wire x1="-27.94" y1="167.64" x2="-38.1" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="C10" gate="G$1" pin="P$1"/>
-<junction x="-38.1" y="167.64"/>
-<wire x1="-38.1" y1="167.64" x2="-48.26" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="VBAT"/>
@@ -4756,13 +4751,10 @@ EC12E series with push-on switch</description>
 <wire x1="-7.62" y1="160.02" x2="-17.78" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="-17.78" y1="160.02" x2="-27.94" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="160.02" x2="-38.1" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="-38.1" y1="160.02" x2="-48.26" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="-48.26" y1="160.02" x2="-48.26" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="160.02" x2="-38.1" y2="158.75" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="GND"/>
 <pinref part="C10" gate="G$1" pin="P$2"/>
 <junction x="-38.1" y="160.02"/>
-<pinref part="C11" gate="G$1" pin="P$2"/>
-<junction x="-48.26" y="160.02"/>
 <pinref part="C9" gate="G$1" pin="P$2"/>
 <junction x="-27.94" y="160.02"/>
 <pinref part="C8" gate="G$1" pin="P$2"/>
@@ -5996,24 +5988,6 @@ EC12E series with push-on switch</description>
 <wire x1="200.406" y1="-12.7" x2="193.04" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SCS_D1" class="0">
-<segment>
-<wire x1="73.66" y1="43.18" x2="86.36" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="43.18" x2="86.36" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
-<junction x="88.9" y="40.64"/>
-<pinref part="SW1" gate="G$1" pin="A"/>
-<label x="76.2" y="45.72" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="SCS_D0" class="0">
-<segment>
-<wire x1="73.66" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
-<junction x="88.9" y="45.72"/>
-<pinref part="SW1" gate="G$1" pin="B"/>
-<label x="76.2" y="48.26" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
 <net name="SCS_D2" class="0">
 <segment>
 <wire x1="73.66" y1="48.26" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
@@ -6023,26 +5997,14 @@ EC12E series with push-on switch</description>
 <label x="76.2" y="50.8" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
-<net name="SCS_D3" class="0">
-<segment>
-<wire x1="63.5" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
-<junction x="63.5" y="106.68"/>
-<pinref part="S1" gate="1" pin="P"/>
-<pinref part="S1" gate="1" pin="P1"/>
-<pinref part="R34" gate="G$1" pin="1"/>
-<wire x1="63.5" y1="106.68" x2="50.8" y2="106.68" width="0.1524" layer="91"/>
-<label x="48.26" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="SCS_D4" class="0">
 <segment>
-<wire x1="88.9" y1="106.68" x2="91.44" y2="106.68" width="0.1524" layer="91"/>
-<junction x="88.9" y="106.68"/>
-<pinref part="S2" gate="1" pin="P"/>
-<pinref part="S2" gate="1" pin="P1"/>
-<pinref part="R35" gate="G$1" pin="1"/>
-<wire x1="88.9" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<label x="73.66" y="106.68" size="1.778" layer="95"/>
+<wire x1="73.66" y1="43.18" x2="86.36" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="43.18" x2="86.36" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
+<junction x="88.9" y="40.64"/>
+<pinref part="SW1" gate="G$1" pin="A"/>
+<label x="76.2" y="45.72" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="SCS_D8" class="0">
@@ -6115,20 +6077,24 @@ EC12E series with push-on switch</description>
 </net>
 <net name="SCS_D7" class="0">
 <segment>
-<wire x1="73.66" y1="25.4" x2="88.9" y2="25.4" width="0.1524" layer="91"/>
-<junction x="88.9" y="25.4"/>
-<pinref part="SW2" gate="G$1" pin="B"/>
-<label x="76.2" y="27.94" size="1.778" layer="95" rot="R180"/>
+<wire x1="63.5" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
+<junction x="63.5" y="106.68"/>
+<pinref part="S1" gate="1" pin="P"/>
+<pinref part="S1" gate="1" pin="P1"/>
+<pinref part="R34" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="106.68" x2="50.8" y2="106.68" width="0.1524" layer="91"/>
+<label x="48.26" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCS_D6" class="0">
 <segment>
-<wire x1="73.66" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="22.86" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<junction x="88.9" y="20.32"/>
-<pinref part="SW2" gate="G$1" pin="A"/>
-<label x="76.2" y="25.4" size="1.778" layer="95" rot="R180"/>
+<wire x1="88.9" y1="106.68" x2="91.44" y2="106.68" width="0.1524" layer="91"/>
+<junction x="88.9" y="106.68"/>
+<pinref part="S2" gate="1" pin="P"/>
+<pinref part="S2" gate="1" pin="P1"/>
+<pinref part="R35" gate="G$1" pin="1"/>
+<wire x1="88.9" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<label x="73.66" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCS_D5" class="0">
@@ -6138,6 +6104,32 @@ EC12E series with push-on switch</description>
 <wire x1="83.82" y1="33.02" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="SW2" gate="G$2" pin="2"/>
 <label x="76.2" y="30.48" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="SCS_D3" class="0">
+<segment>
+<wire x1="73.66" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
+<junction x="88.9" y="45.72"/>
+<pinref part="SW1" gate="G$1" pin="B"/>
+<label x="76.2" y="48.26" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="SCS_D1" class="0">
+<segment>
+<wire x1="73.66" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="22.86" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
+<junction x="88.9" y="20.32"/>
+<pinref part="SW2" gate="G$1" pin="A"/>
+<label x="76.2" y="25.4" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="SCS_D0" class="0">
+<segment>
+<wire x1="73.66" y1="25.4" x2="88.9" y2="25.4" width="0.1524" layer="91"/>
+<junction x="88.9" y="25.4"/>
+<pinref part="SW2" gate="G$1" pin="B"/>
+<label x="76.2" y="27.94" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 </nets>
