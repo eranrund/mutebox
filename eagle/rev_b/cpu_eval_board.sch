@@ -5116,7 +5116,7 @@ EC12E series with push-on switch</description>
 <wire x1="35.56" y1="147.32" x2="15.24" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="VREF" class="0">
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="VREF+"/>
 <wire x1="35.56" y1="121.92" x2="10.16" y2="121.92" width="0.1524" layer="91"/>
@@ -5131,7 +5131,7 @@ EC12E series with push-on switch</description>
 <junction x="0" y="114.3"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="VDDA" class="0">
 <segment>
 <wire x1="10.16" y1="127" x2="10.16" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="STM32F407XX1" gate="G$1" pin="VDDA"/>
