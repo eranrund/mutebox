@@ -4432,7 +4432,7 @@ EC12E series with push-on switch</description>
 <part name="U$63" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$64" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="IC5" library="74xx-eu" deviceset="74*595" device="D" technology="HC"/>
-<part name="C24" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="100nF"/>
+<part name="C24" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="U$67" library="microbuilder" deviceset="GND" device=""/>
 <part name="R20" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
 <part name="R21" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
@@ -6045,29 +6045,7 @@ EC12E series with push-on switch</description>
 <label x="73.66" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SCS_D5" class="0">
-<segment>
-<wire x1="109.22" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
-<junction x="109.22" y="106.68"/>
-<pinref part="S3" gate="1" pin="P"/>
-<pinref part="S3" gate="1" pin="P1"/>
-<pinref part="R36" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
-<label x="96.52" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SCS_D6" class="0">
-<segment>
-<wire x1="134.62" y1="106.68" x2="137.16" y2="106.68" width="0.1524" layer="91"/>
-<junction x="134.62" y="106.68"/>
-<pinref part="S4" gate="1" pin="P"/>
-<pinref part="S4" gate="1" pin="P1"/>
-<pinref part="R37" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="106.68" x2="121.92" y2="106.68" width="0.1524" layer="91"/>
-<label x="119.38" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SCS_D7" class="0">
+<net name="SCS_D8" class="0">
 <segment>
 <wire x1="157.48" y1="106.68" x2="160.02" y2="106.68" width="0.1524" layer="91"/>
 <junction x="157.48" y="106.68"/>
@@ -6078,31 +6056,26 @@ EC12E series with push-on switch</description>
 <label x="142.24" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SCS_D8" class="0">
-<segment>
-<wire x1="73.66" y1="25.4" x2="88.9" y2="25.4" width="0.1524" layer="91"/>
-<junction x="88.9" y="25.4"/>
-<pinref part="SW2" gate="G$1" pin="B"/>
-<label x="76.2" y="27.94" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
 <net name="SCS_D9" class="0">
 <segment>
-<wire x1="73.66" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="22.86" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<junction x="88.9" y="20.32"/>
-<pinref part="SW2" gate="G$1" pin="A"/>
-<label x="76.2" y="25.4" size="1.778" layer="95" rot="R180"/>
+<wire x1="134.62" y1="106.68" x2="137.16" y2="106.68" width="0.1524" layer="91"/>
+<junction x="134.62" y="106.68"/>
+<pinref part="S4" gate="1" pin="P"/>
+<pinref part="S4" gate="1" pin="P1"/>
+<pinref part="R37" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="106.68" x2="121.92" y2="106.68" width="0.1524" layer="91"/>
+<label x="119.38" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCS_D10" class="0">
 <segment>
-<wire x1="73.66" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="27.94" x2="83.82" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="33.02" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="SW2" gate="G$2" pin="2"/>
-<label x="76.2" y="30.48" size="1.778" layer="95" rot="R180"/>
+<wire x1="109.22" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
+<junction x="109.22" y="106.68"/>
+<pinref part="S3" gate="1" pin="P"/>
+<pinref part="S3" gate="1" pin="P1"/>
+<pinref part="R36" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
+<label x="96.52" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A0" class="0">
@@ -6138,6 +6111,33 @@ EC12E series with push-on switch</description>
 <pinref part="R43" gate="G$1" pin="S"/>
 <wire x1="320.04" y1="101.6" x2="320.04" y2="93.98" width="0.1524" layer="91"/>
 <label x="320.04" y="93.98" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="SCS_D7" class="0">
+<segment>
+<wire x1="73.66" y1="25.4" x2="88.9" y2="25.4" width="0.1524" layer="91"/>
+<junction x="88.9" y="25.4"/>
+<pinref part="SW2" gate="G$1" pin="B"/>
+<label x="76.2" y="27.94" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="SCS_D6" class="0">
+<segment>
+<wire x1="73.66" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="22.86" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
+<junction x="88.9" y="20.32"/>
+<pinref part="SW2" gate="G$1" pin="A"/>
+<label x="76.2" y="25.4" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="SCS_D5" class="0">
+<segment>
+<wire x1="73.66" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="27.94" x2="83.82" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="33.02" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="SW2" gate="G$2" pin="2"/>
+<label x="76.2" y="30.48" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 </nets>
