@@ -1276,113 +1276,6 @@ Epson Toyocom FCC-255</description>
 <rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
 <rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
 </package>
-<package name="PANASONIC_C">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package C&lt;/b&gt;</description>
-<wire x1="-2.6" y1="2.6" x2="1.25" y2="2.6" width="0.1016" layer="51"/>
-<wire x1="1.25" y1="2.6" x2="2.6" y2="1.25" width="0.1016" layer="51"/>
-<wire x1="2.6" y1="1.25" x2="2.6" y2="-1.25" width="0.1016" layer="51"/>
-<wire x1="2.6" y1="-1.25" x2="1.25" y2="-2.6" width="0.1016" layer="51"/>
-<wire x1="1.25" y1="-2.6" x2="-2.6" y2="-2.6" width="0.1016" layer="51"/>
-<wire x1="-2.6" y1="-2.6" x2="-2.6" y2="2.6" width="0.1016" layer="51"/>
-<wire x1="-2.6" y1="0.95" x2="-2.6" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="2.6" x2="1.25" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="1.25" y1="2.6" x2="2.6" y2="1.25" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="1.25" x2="2.6" y2="0.95" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="-0.95" x2="2.6" y2="-1.25" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="-1.25" x2="1.25" y2="-2.6" width="0.2032" layer="21"/>
-<wire x1="1.25" y1="-2.6" x2="-2.6" y2="-2.6" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="-2.6" x2="-2.6" y2="-0.95" width="0.2032" layer="21"/>
-<wire x1="-1.55" y1="1.85" x2="-1.55" y2="-1.85" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="2.45" width="0.1016" layer="51"/>
-<smd name="-" x="-2.05" y="0" dx="2.6" dy="1.4" layer="1"/>
-<smd name="+" x="2.05" y="0" dx="2.6" dy="1.4" layer="1"/>
-<text x="-2.54" y="2.794" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-2.54" y="-3.683" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-2.95" y1="-0.35" x2="-2.4" y2="0.35" layer="51"/>
-<rectangle x1="2.4" y1="-0.35" x2="2.95" y2="0.35" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-1.6" y="1.8"/>
-<vertex x="-2" y="1.35"/>
-<vertex x="-2.25" y="0.75"/>
-<vertex x="-2.45" y="0.05"/>
-<vertex x="-2.25" y="-0.75"/>
-<vertex x="-1.95" y="-1.35"/>
-<vertex x="-1.6" y="-1.8"/>
-</polygon>
-</package>
-<package name="PANASONIC_D">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package D&lt;/b&gt;</description>
-<wire x1="-3.25" y1="3.25" x2="1.55" y2="3.25" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="3.25" x2="3.25" y2="1.55" width="0.1016" layer="51"/>
-<wire x1="3.25" y1="1.55" x2="3.25" y2="-1.55" width="0.1016" layer="51"/>
-<wire x1="3.25" y1="-1.55" x2="1.55" y2="-3.25" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="-3.25" x2="-3.25" y2="-3.25" width="0.1016" layer="51"/>
-<wire x1="-3.25" y1="-3.25" x2="-3.25" y2="3.25" width="0.1016" layer="51"/>
-<wire x1="-3.25" y1="0.95" x2="-3.25" y2="3.25" width="0.2032" layer="21"/>
-<wire x1="-3.25" y1="3.25" x2="1.55" y2="3.25" width="0.2032" layer="21"/>
-<wire x1="1.55" y1="3.25" x2="3.25" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="3.25" y1="1.55" x2="3.25" y2="0.95" width="0.2032" layer="21"/>
-<wire x1="3.25" y1="-0.95" x2="3.25" y2="-1.55" width="0.2032" layer="21"/>
-<wire x1="3.25" y1="-1.55" x2="1.55" y2="-3.25" width="0.2032" layer="21"/>
-<wire x1="1.55" y1="-3.25" x2="-3.25" y2="-3.25" width="0.2032" layer="21"/>
-<wire x1="-3.25" y1="-3.25" x2="-3.25" y2="-0.95" width="0.2032" layer="21"/>
-<wire x1="-2.1" y1="2.25" x2="-2.1" y2="-2.2" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="3.1" width="0.1016" layer="51"/>
-<smd name="-" x="-2.654" y="0" dx="3.556" dy="1.4" layer="1"/>
-<smd name="+" x="2.654" y="0" dx="3.556" dy="1.4" layer="1"/>
-<text x="-3.02" y="3.54" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="-3.048" y="-4.318" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-3.65" y1="-0.35" x2="-3.05" y2="0.35" layer="51"/>
-<rectangle x1="3.05" y1="-0.35" x2="3.65" y2="0.35" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-2.15" y="2.15"/>
-<vertex x="-2.6" y="1.6"/>
-<vertex x="-2.9" y="0.9"/>
-<vertex x="-3.05" y="0"/>
-<vertex x="-2.9" y="-0.95"/>
-<vertex x="-2.55" y="-1.65"/>
-<vertex x="-2.15" y="-2.15"/>
-<vertex x="-2.15" y="2.1"/>
-</polygon>
-</package>
-<package name="CELEC_3.5MM_8MM">
-<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
-grid 3.5 mm, diameter 8 mm</description>
-<wire x1="-3.429" y1="1.143" x2="-2.667" y2="1.143" width="0.2032" layer="21"/>
-<wire x1="-3.048" y1="0.762" x2="-3.048" y2="1.524" width="0.2032" layer="21"/>
-<wire x1="-1.651" y1="0" x2="-0.762" y2="0" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.27" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="-1.27" x2="-0.254" y2="-1.27" width="0.2032" layer="51"/>
-<wire x1="-0.254" y1="-1.27" x2="-0.254" y2="1.27" width="0.2032" layer="51"/>
-<wire x1="-0.254" y1="1.27" x2="-0.762" y2="1.27" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="1.27" x2="-0.762" y2="0" width="0.2032" layer="51"/>
-<wire x1="0.635" y1="0" x2="1.651" y2="0" width="0.2032" layer="51"/>
-<circle x="0" y="0" radius="4.064" width="0.2032" layer="21"/>
-<pad name="-" x="1.778" y="0" drill="0.8128" diameter="1.6002" shape="octagon"/>
-<pad name="+" x="-1.778" y="0" drill="0.8128" diameter="1.6002"/>
-<text x="4.572" y="0" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="4.572" y="-0.762" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
-</package>
-<package name="CELEC_3.5MM_10MM">
-<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
-grid 3.5 mm, diameter 10 mm</description>
-<wire x1="-3.429" y1="1.143" x2="-2.667" y2="1.143" width="0.2032" layer="21"/>
-<wire x1="-3.048" y1="0.762" x2="-3.048" y2="1.524" width="0.2032" layer="21"/>
-<wire x1="-1.651" y1="0" x2="-0.762" y2="0" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.27" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="-1.27" x2="-0.254" y2="-1.27" width="0.2032" layer="51"/>
-<wire x1="-0.254" y1="-1.27" x2="-0.254" y2="1.27" width="0.2032" layer="51"/>
-<wire x1="-0.254" y1="1.27" x2="-0.762" y2="1.27" width="0.2032" layer="51"/>
-<wire x1="-0.762" y1="1.27" x2="-0.762" y2="0" width="0.2032" layer="51"/>
-<wire x1="0.635" y1="0" x2="1.651" y2="0" width="0.2032" layer="51"/>
-<circle x="0" y="0" radius="5.08" width="0.2032" layer="21"/>
-<pad name="-" x="1.778" y="0" drill="0.8128" diameter="1.6002" shape="octagon"/>
-<pad name="+" x="-1.778" y="0" drill="0.8128" diameter="1.6002"/>
-<text x="5.588" y="0.127" size="0.8128" layer="25" ratio="18">&gt;NAME</text>
-<text x="5.588" y="-0.635" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
-</package>
 <package name="SOIC8_150MIL">
 <description>&lt;b&gt;Small Outline IC - 150mil Wide&lt;/b&gt;</description>
 <wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
@@ -1688,19 +1581,6 @@ grid 3.5 mm, diameter 10 mm</description>
 <pin name="4" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="5" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="6" x="-2.54" y="-5.08" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
-<symbol name="CAPACITOR_POL">
-<wire x1="-1.27" y1="2.54" x2="1.27" y2="2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="1.27" y2="1.778" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.778" x2="-1.27" y2="1.778" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.778" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-0.635" y1="3.81" x2="-0.635" y2="3.048" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="3.429" x2="-0.254" y2="3.429" width="0.254" layer="94"/>
-<text x="2.54" y="2.54" size="1.27" layer="95" font="vector">&gt;NAME</text>
-<text x="2.54" y="0" size="1.27" layer="96" font="vector">&gt;VALUE</text>
-<rectangle x1="-1.397" y1="0" x2="1.397" y2="0.889" layer="94"/>
-<pin name="+" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="-" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
 <symbol name="EEPROM_SOIC8_24C">
 <pin name="A0" x="-10.16" y="-2.54" length="short" direction="in"/>
@@ -2456,68 +2336,6 @@ grid 3.5 mm, diameter 10 mm</description>
 <connect gate="A" pin="4" pad="4"/>
 <connect gate="A" pin="5" pad="5"/>
 <connect gate="A" pin="6" pad="6"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="CAP_ELECTROLYTIC" prefix="C" uservalue="yes">
-<description>&lt;p&gt;&lt;b&gt;Electrolytic Capacitors&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;SMT&lt;/b&gt;&lt;hr/&gt;&lt;/p&gt;
-&lt;b&gt;PANASONIC_C&lt;/b&gt; - Size C Panasonic Electrolytic Aluminum Capacitor
-&lt;ul&gt;
-&lt;li&gt;47µF 16V 20% Electrolytic Capacitor [Digikey: PCE3890TR-ND]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;b&gt;PANASONIC_D&lt;/b&gt; - Size D Panasonic Electrolytic Aluminum Capacitor
-&lt;ul&gt;
-&lt;li&gt;100µF 25V 20% Electrolytic Capacitor [Digikey: PCE3898TR-ND]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;b&gt;PTH&lt;/b&gt;&lt;hr/&gt;&lt;/p&gt;
-&lt;b&gt;3.5 mm grid, 8 mm diameter&lt;/b&gt;
-&lt;ul&gt;
-&lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;
-&lt;b&gt;3.5 mm grid, 10 mm diameter&lt;/b&gt;
-&lt;ul&gt;
-&lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;</description>
-<gates>
-<gate name="G$1" symbol="CAPACITOR_POL" x="0" y="-2.54"/>
-</gates>
-<devices>
-<device name="PANASONIC_C" package="PANASONIC_C">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PANASONIC_D" package="PANASONIC_D">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH_3.5MMGRID_8MMDIA" package="CELEC_3.5MM_8MM">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH_3.5MMGRID_10MMDIA" package="CELEC_3.5MM_10MM">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4584,7 +4402,6 @@ EC12E series with push-on switch</description>
 <part name="R16" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
 <part name="JTAG" library="microbuilder" deviceset="HEADER-1X6" device="ROUND"/>
 <part name="U$24" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="C19" library="microbuilder" deviceset="CAP_ELECTROLYTIC" device="PANASONIC_D" value="100uF"/>
 <part name="U$25" library="keves" deviceset="MIC37100" device=""/>
 <part name="U$26" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$27" library="microbuilder" deviceset="GND" device=""/>
@@ -4593,7 +4410,7 @@ EC12E series with push-on switch</description>
 <part name="C21" library="microbuilder" deviceset="CAP_CERAMIC" device="_0805" value="10uF X7R 0805"/>
 <part name="C22" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
 <part name="R3" library="microbuilder" deviceset="RESISTOR" device="0603" value="680"/>
-<part name="LED3" library="microbuilder" deviceset="LED" device="0603"/>
+<part name="LED_PWR" library="microbuilder" deviceset="LED" device="0603"/>
 <part name="U$29" library="microbuilder" deviceset="GND" device=""/>
 <part name="U1" library="microbuilder" deviceset="EEPROM_I2C_SOIC8_GENERIC" device="" value="24LC512"/>
 <part name="C23" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
@@ -4774,7 +4591,6 @@ EC12E series with push-on switch</description>
 <instance part="R16" gate="G$1" x="176.53" y="186.69"/>
 <instance part="JTAG" gate="A" x="162.56" y="191.77" rot="MR0"/>
 <instance part="U$24" gate="G$1" x="194.31" y="199.39" rot="R270"/>
-<instance part="C19" gate="G$1" x="-62.23" y="162.56"/>
 <instance part="U$25" gate="G$1" x="-99.06" y="200.66"/>
 <instance part="U$26" gate="G$1" x="-125.73" y="200.66" rot="R90"/>
 <instance part="U$27" gate="G$1" x="-100.33" y="187.96"/>
@@ -4783,7 +4599,7 @@ EC12E series with push-on switch</description>
 <instance part="C21" gate="G$1" x="-86.36" y="193.04"/>
 <instance part="C22" gate="G$1" x="-66.04" y="193.04"/>
 <instance part="R3" gate="G$1" x="-54.61" y="195.58" rot="R90"/>
-<instance part="LED3" gate="G$1" x="-54.61" y="182.88" rot="R270"/>
+<instance part="LED_PWR" gate="G$1" x="-54.61" y="182.88" rot="R270"/>
 <instance part="U$29" gate="G$1" x="-54.61" y="175.26"/>
 <instance part="U1" gate="G$1" x="-110.49" y="132.08"/>
 <instance part="C23" gate="G$1" x="-96.52" y="130.81"/>
@@ -4853,9 +4669,6 @@ EC12E series with push-on switch</description>
 <pinref part="C10" gate="G$1" pin="P$1"/>
 <junction x="-38.1" y="167.64"/>
 <wire x1="-38.1" y1="167.64" x2="-48.26" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="C19" gate="G$1" pin="+"/>
-<wire x1="-48.26" y1="167.64" x2="-62.23" y2="167.64" width="0.1524" layer="91"/>
-<junction x="-48.26" y="167.64"/>
 </segment>
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="VBAT"/>
@@ -4960,8 +4773,6 @@ EC12E series with push-on switch</description>
 <junction x="2.54" y="160.02"/>
 <pinref part="C5" gate="G$1" pin="P$2"/>
 <junction x="12.7" y="160.02"/>
-<pinref part="C19" gate="G$1" pin="-"/>
-<wire x1="-62.23" y1="160.02" x2="-48.26" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C14" gate="G$1" pin="P$1"/>
@@ -5036,7 +4847,7 @@ EC12E series with push-on switch</description>
 <pinref part="JTAG" gate="A" pin="3"/>
 </segment>
 <segment>
-<pinref part="LED3" gate="G$1" pin="C"/>
+<pinref part="LED_PWR" gate="G$1" pin="C"/>
 <pinref part="U$29" gate="G$1" pin="GND"/>
 <wire x1="-54.61" y1="177.8" x2="-54.61" y2="180.34" width="0.1524" layer="91"/>
 </segment>
@@ -5248,19 +5059,7 @@ EC12E series with push-on switch</description>
 <junction x="8.89" y="198.12"/>
 </segment>
 </net>
-<net name="USB_DM" class="0">
-<segment>
-<pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="-10.16" y1="195.58" x2="-40.64" y2="195.58" width="0.1524" layer="91"/>
-<label x="-40.64" y="195.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="STM32F407XX1" gate="G$1" pin="PA11"/>
-<wire x1="177.8" y1="137.16" x2="184.15" y2="137.16" width="0.1524" layer="91"/>
-<label x="182.88" y="137.16" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="USB_DP" class="0">
+<net name="USB_D_PP" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="-11.43" y1="198.12" x2="-40.64" y2="198.12" width="0.1524" layer="91"/>
@@ -5426,7 +5225,7 @@ EC12E series with push-on switch</description>
 <net name="N$8" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
+<pinref part="LED_PWR" gate="G$1" pin="A"/>
 <wire x1="-54.61" y1="190.5" x2="-54.61" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5678,6 +5477,18 @@ EC12E series with push-on switch</description>
 <pinref part="STM32F407XX1" gate="G$1" pin="PC4"/>
 <wire x1="35.56" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
 <label x="27.94" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="USB_D_N" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="-10.16" y1="195.58" x2="-40.64" y2="195.58" width="0.1524" layer="91"/>
+<label x="-40.64" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="STM32F407XX1" gate="G$1" pin="PA11"/>
+<wire x1="177.8" y1="137.16" x2="184.15" y2="137.16" width="0.1524" layer="91"/>
+<label x="182.88" y="137.16" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
