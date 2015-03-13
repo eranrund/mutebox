@@ -144,6 +144,8 @@
 <wire x1="114.3" y1="0" x2="114.3" y2="88.9" width="0" layer="20"/>
 <wire x1="114.3" y1="88.9" x2="0" y2="88.9" width="0" layer="20"/>
 <wire x1="0" y1="88.9" x2="0" y2="0" width="0" layer="20"/>
+<text x="62.738" y="26.416" size="1.778" layer="21" font="fixed">MuteBox rev B</text>
+<text x="54.356" y="24.13" size="1.778" layer="21" font="fixed">(c) Eran Rundstein 2015</text>
 </plain>
 <libraries>
 <library name="BaseApp">
