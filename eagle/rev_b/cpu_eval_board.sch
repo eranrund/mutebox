@@ -5061,11 +5061,16 @@ www.vovtech.com
 <part name="U$92" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$93" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$94" library="microbuilder" deviceset="3.3V" device=""/>
+<part name="R44" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K"/>
+<part name="U$95" library="microbuilder" deviceset="3.3V" device=""/>
+<part name="R45" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K"/>
+<part name="U$96" library="microbuilder" deviceset="GND" device=""/>
+<part name="R46" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="182.88" y="133.35" size="1.778" layer="97">USB_VBUS</text>
+<text x="199.39" y="133.35" size="1.778" layer="97">USB_VBUS</text>
 </plain>
 <instances>
 <instance part="STM32F407XX1" gate="G$1" x="104.14" y="83.82"/>
@@ -5153,7 +5158,7 @@ www.vovtech.com
 <instance part="C27" gate="G$1" x="-138.43" y="128.27" rot="R180"/>
 <instance part="U$33" gate="G$1" x="-130.81" y="119.38"/>
 <instance part="U$34" gate="G$1" x="-138.43" y="119.38"/>
-<instance part="U$35" gate="G$1" x="185.42" y="132.08" rot="R270"/>
+<instance part="U$35" gate="G$1" x="203.2" y="132.08" rot="R270"/>
 <instance part="H1" gate="G$1" x="-167.64" y="193.04"/>
 <instance part="H2" gate="G$1" x="-167.64" y="187.96"/>
 <instance part="H3" gate="G$1" x="-167.64" y="182.88"/>
@@ -5178,6 +5183,11 @@ www.vovtech.com
 <instance part="U$92" gate="G$1" x="-83.82" y="13.97" rot="R270"/>
 <instance part="U$93" gate="G$1" x="-83.82" y="11.43" rot="R90"/>
 <instance part="U$94" gate="G$1" x="-59.69" y="11.43" rot="R270"/>
+<instance part="R44" gate="G$1" x="44.45" y="204.47" rot="R90"/>
+<instance part="U$95" gate="G$1" x="44.45" y="214.63"/>
+<instance part="R45" gate="G$1" x="15.24" y="60.96" rot="R90"/>
+<instance part="U$96" gate="G$1" x="15.24" y="71.12" rot="R180"/>
+<instance part="R46" gate="G$1" x="191.77" y="132.08"/>
 </instances>
 <busses>
 </busses>
@@ -5308,6 +5318,11 @@ www.vovtech.com
 <pinref part="SPI_B" gate="A" pin="5"/>
 <pinref part="U$93" gate="G$1" pin="3.3V"/>
 <wire x1="-81.28" y1="11.43" x2="-74.93" y2="11.43" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R44" gate="G$1" pin="2"/>
+<pinref part="U$95" gate="G$1" pin="3.3V"/>
+<wire x1="44.45" y1="209.55" x2="44.45" y2="212.09" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5528,6 +5543,11 @@ www.vovtech.com
 <pinref part="U$90" gate="G$1" pin="GND"/>
 <wire x1="-62.23" y1="13.97" x2="-67.31" y2="13.97" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R45" gate="G$1" pin="2"/>
+<pinref part="U$96" gate="G$1" pin="GND"/>
+<wire x1="15.24" y1="68.58" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -5619,11 +5639,14 @@ www.vovtech.com
 <net name="BOOT1" class="0">
 <segment>
 <pinref part="STM32F407XX1" gate="G$1" pin="PB2"/>
-<wire x1="35.56" y1="55.88" x2="7.62" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="55.88" x2="15.24" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="55.88" x2="7.62" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="55.88" x2="1.27" y2="55.88" width="0.1524" layer="91"/>
 <junction x="7.62" y="55.88"/>
 <label x="-3.81" y="55.88" size="1.778" layer="95"/>
+<pinref part="R45" gate="G$1" pin="1"/>
+<junction x="15.24" y="55.88"/>
 </segment>
 </net>
 <net name="5.0V" class="0">
@@ -5647,9 +5670,9 @@ www.vovtech.com
 <junction x="-119.38" y="200.66"/>
 </segment>
 <segment>
-<pinref part="STM32F407XX1" gate="G$1" pin="PA9"/>
-<wire x1="177.8" y1="132.08" x2="182.88" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="U$35" gate="G$1" pin="5.0V"/>
+<pinref part="R46" gate="G$1" pin="2"/>
+<wire x1="196.85" y1="132.08" x2="200.66" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SPI_A" gate="A" pin="1"/>
@@ -5725,6 +5748,8 @@ www.vovtech.com
 <pinref part="SW_RST" gate="G$1" pin="P1"/>
 <junction x="55.88" y="196.85"/>
 <label x="36.83" y="196.85" size="1.778" layer="95"/>
+<wire x1="44.45" y1="196.85" x2="44.45" y2="199.39" width="0.1524" layer="91"/>
+<pinref part="R44" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="181.61" y1="189.23" x2="184.15" y2="189.23" width="0.1524" layer="91"/>
@@ -6300,6 +6325,13 @@ www.vovtech.com
 <pinref part="FLASH1" gate="G$1" pin="#CS"/>
 <wire x1="-121.92" y1="64.77" x2="-129.54" y2="64.77" width="0.1524" layer="91"/>
 <label x="-132.08" y="64.77" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="R46" gate="G$1" pin="1"/>
+<pinref part="STM32F407XX1" gate="G$1" pin="PA9"/>
+<wire x1="186.69" y1="132.08" x2="177.8" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

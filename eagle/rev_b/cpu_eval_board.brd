@@ -1549,6 +1549,9 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C3" library="microbuilder" package="0603" value="0.1uF" x="64.389" y="9.398" rot="R90"/>
 <element name="SPI_A" library="pinhead" package="2X06" value="" x="96.52" y="3.175"/>
 <element name="SPI_B" library="pinhead" package="2X07" value="" x="71.374" y="3.429"/>
+<element name="R44" library="microbuilder" package="0603" value="10K" x="85.217" y="36.83" rot="MR0"/>
+<element name="R45" library="microbuilder" package="0603" value="10K" x="103.886" y="53.34" rot="MR0"/>
+<element name="R46" library="microbuilder" package="0603" value="0" x="100.33" y="60.579" rot="R90"/>
 </elements>
 <signals>
 <signal name="3.3V">
@@ -1660,6 +1663,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="94.146" y1="41.998" x2="93.218" y2="42.926" width="0.254" layer="16"/>
 <wire x1="93.853" y1="43.688" x2="93.853" y2="43.561" width="0.254" layer="1"/>
 <wire x1="93.853" y1="43.561" x2="93.218" y2="42.926" width="0.254" layer="1"/>
+<contactref element="R44" pad="2"/>
+<wire x1="84.367" y1="36.83" x2="84.367" y2="35.902" width="0.1524" layer="16"/>
+<wire x1="84.367" y1="35.902" x2="84.963" y2="35.306" width="0.1524" layer="16"/>
+<via x="84.963" y="35.306" extent="1-16" drill="0.3302"/>
+<wire x1="84.963" y1="35.306" x2="85.344" y2="35.306" width="0.1524" layer="1"/>
 </signal>
 <signal name="GND">
 <contactref element="STM32F407XX1" pad="99"/>
@@ -1835,6 +1843,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="68.072" y="8.636" extent="1-16" drill="0.3302"/>
 <wire x1="68.072" y1="8.636" x2="68.072" y2="8.763" width="0.254" layer="16"/>
 <wire x1="68.072" y1="8.763" x2="68.199" y2="8.89" width="0.254" layer="16"/>
+<contactref element="R45" pad="2"/>
 </signal>
 <signal name="N$1">
 <contactref element="STM32F407XX1" pad="49"/>
@@ -1951,6 +1960,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="106.68" y1="50.165" x2="105.41" y2="51.435" width="0.254" layer="1"/>
 <wire x1="104.101" y1="51.689" x2="105.156" y2="51.689" width="0.254" layer="16"/>
 <wire x1="105.156" y1="51.689" x2="105.41" y2="51.435" width="0.254" layer="16"/>
+<contactref element="R45" pad="1"/>
+<wire x1="104.736" y1="53.34" x2="104.736" y2="52.324" width="0.1524" layer="16"/>
+<wire x1="104.736" y1="52.324" x2="104.101" y2="51.689" width="0.1524" layer="16"/>
 </signal>
 <signal name="5.0V">
 <contactref element="U$14" pad="VBUS"/>
@@ -1960,7 +1972,6 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R18" pad="2"/>
 <contactref element="JP2" pad="1"/>
 <contactref element="LCD_POT2" pad="P$1"/>
-<contactref element="STM32F407XX1" pad="68"/>
 <contactref element="R26" pad="1"/>
 <contactref element="IC1" pad="8"/>
 <contactref element="R28" pad="2"/>
@@ -1970,17 +1981,12 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="LCD1" pad="A"/>
 <wire x1="107.9246" y1="74.2442" x2="106.0958" y2="74.2442" width="1.016" layer="1"/>
 <wire x1="106.0958" y1="74.2442" x2="105.791" y2="74.549" width="1.016" layer="1"/>
-<wire x1="105.791" y1="74.549" x2="103.505" y2="74.549" width="1.016" layer="1"/>
-<wire x1="103.505" y1="74.549" x2="103.124" y2="74.549" width="1.016" layer="1"/>
+<wire x1="105.791" y1="74.549" x2="103.124" y2="74.549" width="1.016" layer="1"/>
 <wire x1="103.124" y1="74.549" x2="100.1322" y2="74.549" width="1.016" layer="1"/>
 <wire x1="100.1322" y1="74.549" x2="99.802" y2="74.2188" width="1.016" layer="1"/>
 <wire x1="100.457" y1="77.851" x2="103.124" y2="75.184" width="0.6096" layer="1"/>
 <wire x1="103.124" y1="75.184" x2="103.124" y2="74.549" width="0.6096" layer="1"/>
 <wire x1="97.552" y1="69.535" x2="96.2" y2="69.535" width="0.254" layer="1"/>
-<wire x1="99.83026875" y1="57.392753125" x2="99.83026875" y2="63.38126875" width="0.254" layer="1"/>
-<wire x1="99.83026875" y1="63.38126875" x2="102.616" y2="66.167" width="0.254" layer="1"/>
-<wire x1="102.616" y1="66.167" x2="102.616" y2="73.66" width="0.254" layer="1"/>
-<wire x1="102.616" y1="73.66" x2="103.505" y2="74.549" width="0.254" layer="1"/>
 <wire x1="96.774" y1="77.851" x2="94.615" y2="75.692" width="0.6096" layer="1"/>
 <wire x1="100.457" y1="77.851" x2="96.774" y2="77.851" width="0.6096" layer="1"/>
 <wire x1="37.084" y1="66.421" x2="37.084" y2="65.913" width="0.254" layer="16"/>
@@ -2054,6 +2060,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="3.302" y1="58.928" x2="6.477" y2="62.103" width="0.6096" layer="16"/>
 <wire x1="6.477" y1="62.103" x2="17.507" y2="62.103" width="0.6096" layer="16"/>
 <wire x1="17.507" y1="62.103" x2="18.98" y2="60.63" width="0.6096" layer="16"/>
+<contactref element="R46" pad="2"/>
+<wire x1="100.33" y1="61.429" x2="100.33" y2="63.5" width="0.1524" layer="1"/>
+<wire x1="100.33" y1="63.5" x2="102.489" y2="65.659" width="0.1524" layer="1"/>
+<wire x1="102.489" y1="65.659" x2="102.489" y2="73.914" width="0.1524" layer="1"/>
+<wire x1="102.489" y1="73.914" x2="103.124" y2="74.549" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$10">
 <contactref element="U$14" pad="D-"/>
@@ -2112,7 +2123,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="93.98" y1="31.75" x2="93.853" y2="31.75" width="0.1524" layer="1"/>
 <wire x1="93.853" y1="31.75" x2="88.265" y2="37.338" width="0.1524" layer="1"/>
 <via x="88.265" y="37.338" extent="1-16" drill="0.3302"/>
-<wire x1="88.265" y1="37.338" x2="88.265" y2="41.021" width="0.1524" layer="16"/>
+<wire x1="88.265" y1="37.338" x2="88.265" y2="37.846" width="0.1524" layer="16"/>
+<wire x1="88.265" y1="37.846" x2="88.265" y2="41.021" width="0.1524" layer="16"/>
 <wire x1="88.265" y1="41.021" x2="84.709" y2="44.577" width="0.1524" layer="16"/>
 <wire x1="102.83026875" y1="39.28273125" x2="103.886" y2="38.227" width="0.1524" layer="1"/>
 <wire x1="103.886" y1="38.227" x2="107.95" y2="38.227" width="0.1524" layer="1"/>
@@ -2120,6 +2132,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="108.585" y1="37.592" x2="108.585" y2="33.02" width="0.1524" layer="1"/>
 <wire x1="108.585" y1="33.02" x2="106.045" y2="30.48" width="0.1524" layer="1"/>
 <wire x1="106.045" y1="30.48" x2="102.489" y2="30.48" width="0.1524" layer="1"/>
+<contactref element="R44" pad="1"/>
+<wire x1="86.067" y1="36.83" x2="87.249" y2="36.83" width="0.1524" layer="16"/>
+<wire x1="87.249" y1="36.83" x2="88.265" y2="37.846" width="0.1524" layer="16"/>
 </signal>
 <signal name="SW_USER">
 <contactref element="STM32F407XX1" pad="23"/>
@@ -3333,6 +3348,12 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="66.167" y1="12.162" x2="66.264" y2="12.065" width="0.1524" layer="1"/>
 <wire x1="66.167" y1="21.209" x2="66.167" y2="27.051" width="0.1524" layer="16"/>
 <wire x1="66.167" y1="27.051" x2="66.294" y2="27.178" width="0.1524" layer="16"/>
+</signal>
+<signal name="N$3">
+<contactref element="R46" pad="1"/>
+<contactref element="STM32F407XX1" pad="68"/>
+<wire x1="99.83026875" y1="57.392753125" x2="99.83026875" y2="59.22926875" width="0.1524" layer="1"/>
+<wire x1="99.83026875" y1="59.22926875" x2="100.33" y2="59.729" width="0.1524" layer="1"/>
 </signal>
 </signals>
 </board>
