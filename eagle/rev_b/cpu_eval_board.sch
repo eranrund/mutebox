@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4860,212 +4860,426 @@ www.vovtech.com
 </class>
 </classes>
 <parts>
-<part name="STM32F407XX1" library="BaseApp" deviceset="STM32F407" device=""/>
+<part name="STM32F407XX1" library="BaseApp" deviceset="STM32F407" device="">
+<attribute name="PARTNO" value="STM32F407VGT6,ST,,511-STM32F407VGT6,ARM Microcontrollers - MCU ARM M4 1024 FLASH 168 Mhz 192kB SRAM, REF6"/>
+</part>
 <part name="U$1" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$2" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$3" library="microbuilder" deviceset="GND" device=""/>
-<part name="C1" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="2.2uF ESR &lt;2Ohm"/>
-<part name="C2" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="2.2uF ESR &lt;2Ohm"/>
+<part name="C1" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="2.2uF ESR &lt;2Ohm">
+<attribute name="PARTNO" value="GRM188R61E225KA12D,Murata Electronics,,81-GRM188R61E225KA2D,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 2.2uF 25volts X5R 10%, REF25"/>
+</part>
+<part name="C2" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="2.2uF ESR &lt;2Ohm">
+<attribute name="PARTNO" value="GRM188R61E225KA12D,Murata Electronics,,81-GRM188R61E225KA2D,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 2.2uF 25volts X5R 10%, REF25"/>
+</part>
 <part name="U$4" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$5" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="C4" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C5" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C6" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C7" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C8" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C9" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C10" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
+<part name="C4" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C5" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C6" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C7" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C8" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C9" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C10" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
 <part name="U$7" library="microbuilder" deviceset="GND" device=""/>
-<part name="C12" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C13" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="C14" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="1uF"/>
-<part name="C15" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="1uF"/>
+<part name="C12" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C13" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="C14" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="1uF">
+<attribute name="PARTNO" value="GRM188R61E105KA12D,Murata Electronics,,81-GRM188R61E105KA12,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 1uF 25volts X5R 10%, REF23"/>
+</part>
+<part name="C15" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="1uF">
+<attribute name="PARTNO" value="GRM188R61E105KA12D,Murata Electronics,,81-GRM188R61E105KA12,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 1uF 25volts X5R 10%, REF23"/>
+</part>
 <part name="U$8" library="microbuilder" deviceset="GND" device=""/>
-<part name="R1" library="microbuilder" deviceset="RESISTOR" device="0603" value="47"/>
+<part name="R1" library="microbuilder" deviceset="RESISTOR" device="0603" value="47">
+<attribute name="PARTNO" value="CRCW060347R0FKEA,Vishay / Dale,,71-CRCW0603-47-E3,Thick Film Resistors - SMD 1/10watt 47ohms 1%, REF11"/>
+</part>
 <part name="U$9" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="R2" library="microbuilder" deviceset="RESISTOR" device="0603" value="510"/>
+<part name="R2" library="microbuilder" deviceset="RESISTOR" device="0603" value="510">
+<attribute name="PARTNO" value="RT0603FRE07510RL,Yageo,,603-RT0603FRE07510RL,Thin Film Resistors - SMD 1/10W 510 ohm 1% 50ppm, REF15"/>
+</part>
 <part name="U$10" library="microbuilder" deviceset="GND" device=""/>
-<part name="Y1" library="microbuilder" deviceset="CRYSTAL" device="SMD" value="8MHz"/>
-<part name="C16" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="20pF"/>
-<part name="C17" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="20pF"/>
+<part name="Y1" library="microbuilder" deviceset="CRYSTAL" device="SMD" value="8MHz">
+<attribute name="PARTNO" value="ABLS-8.000MHZ-B4-T,ABRACON,,815-ABLS-8.0M-T,Crystals 8.000MHz 30ppm -20C +70C 18pF, REF9"/>
+</part>
+<part name="C16" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="20pF">
+<attribute name="PARTNO" value="GRM1885C1H200JA01D,Murata Electronics,,81-GRM39C200J50,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 20pF 50volts C0G 5%, REF31"/>
+</part>
+<part name="C17" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="20pF">
+<attribute name="PARTNO" value="GRM1885C1H200JA01D,Murata Electronics,,81-GRM39C200J50,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 20pF 50volts C0G 5%, REF31"/>
+</part>
 <part name="U$11" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$12" library="microbuilder" deviceset="GND" device=""/>
-<part name="R5" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K"/>
+<part name="R5" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$13" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="U$14" library="SparkFun-Connectors" deviceset="USB+SHIELD" device="" value="Molex 67068-9001"/>
-<part name="PRTR5V0U2X1" library="keves" deviceset="USB-ESD-PROTECTOR" device=""/>
+<part name="U$14" library="SparkFun-Connectors" deviceset="USB+SHIELD" device="" value="Molex 67068-9001">
+<attribute name="PARTNO" value="67068-9001,Molex,,538-67068-9001,USB Connectors USB Type B Recept R/A w/ Solder Tabs, REF18"/>
+</part>
+<part name="PRTR5V0U2X1" library="keves" deviceset="USB-ESD-PROTECTOR" device="">
+<attribute name="PARTNO" value="PRTR5V0U2X,215&quot;,NXP Semiconductors,,771-PRTR5V0U2X-T/R,ESD Suppressors 5.5V DUAL R-R ESD ULTRA LOW CAP, REF20"/>
+</part>
 <part name="U$16" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$17" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="R6" library="microbuilder" deviceset="RESISTOR" device="0603" value="22"/>
-<part name="R7" library="microbuilder" deviceset="RESISTOR" device="0603" value="22"/>
-<part name="C18" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
+<part name="R6" library="microbuilder" deviceset="RESISTOR" device="0603" value="22">
+<attribute name="PARTNO" value="MCT06030C2209FP500,Vishay / Beyschlag,,594-MCT06030C2209FP5,Thin Film Resistors - SMD .1W 22ohm 1% 0603 50ppm Auto, REF32"/>
+</part>
+<part name="R7" library="microbuilder" deviceset="RESISTOR" device="0603" value="22">
+<attribute name="PARTNO" value="MCT06030C2209FP500,Vishay / Beyschlag,,594-MCT06030C2209FP5,Thin Film Resistors - SMD .1W 22ohm 1% 0603 50ppm Auto, REF32"/>
+</part>
+<part name="C18" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
 <part name="U$18" library="microbuilder" deviceset="GND" device=""/>
-<part name="SW_RST" library="microbuilder" deviceset="SWITCH_TACT_SMT" device=""/>
-<part name="R8" library="microbuilder" deviceset="RESISTOR" device="0603" value="330"/>
-<part name="SW_USER" library="microbuilder" deviceset="SWITCH_TACT_SMT" device=""/>
-<part name="R9" library="microbuilder" deviceset="RESISTOR" device="0603" value="220K"/>
+<part name="SW_RST" library="microbuilder" deviceset="SWITCH_TACT_SMT" device="">
+<attribute name="PARTNO" value="EVQ-PQHB55,Panasonic,,667-EVQ-PQHB55,Tactile Switches Super small sized S Light Touch Switch, REF21"/>
+</part>
+<part name="R8" library="microbuilder" deviceset="RESISTOR" device="0603" value="330">
+<attribute name="PARTNO" value="RT0603FRE07330RL,Yageo,,603-RT0603FRE07330RL,Thin Film Resistors - SMD 1/10W 330 ohm 1% 50ppm, REF14"/>
+</part>
+<part name="SW_USER" library="microbuilder" deviceset="SWITCH_TACT_SMT" device="">
+<attribute name="PARTNO" value="EVQ-PQHB55,Panasonic,,667-EVQ-PQHB55,Tactile Switches Super small sized S Light Touch Switch, REF21"/>
+</part>
+<part name="R9" library="microbuilder" deviceset="RESISTOR" device="0603" value="220K">
+<attribute name="PARTNO" value="RT0603FRE07220KL,Yageo,,603-RT0603FRE07220KL,Thin Film Resistors - SMD 1/10W 220K ohm 1% 50ppm, REF13"/>
+</part>
 <part name="U$19" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$20" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="LED1" library="microbuilder" deviceset="LED" device="0603"/>
-<part name="LED2" library="microbuilder" deviceset="LED" device="0603"/>
-<part name="R10" library="microbuilder" deviceset="RESISTOR" device="0603" value="680"/>
-<part name="R11" library="microbuilder" deviceset="RESISTOR" device="0603" value="680"/>
+<part name="LED1" library="microbuilder" deviceset="LED" device="0603">
+<attribute name="PARTNO" value="VLMS1300-GS08,Vishay Semiconductors,,78-VLMS1300-GS08,Standard LEDs - SMD Super Red Clear Non-Diff, REF34"/>
+</part>
+<part name="LED2" library="microbuilder" deviceset="LED" device="0603">
+<attribute name="PARTNO" value="VLMS1300-GS08,Vishay Semiconductors,,78-VLMS1300-GS08,Standard LEDs - SMD Super Red Clear Non-Diff, REF34"/>
+</part>
+<part name="R10" library="microbuilder" deviceset="RESISTOR" device="0603" value="680">
+<attribute name="PARTNO" value="MCT06030C6800FP500,Vishay / Beyschlag,,594-MCT06030C6800FP5,Thin Film Resistors - SMD .1W 680ohm 1% 0603 50ppm Auto, REF36"/>
+</part>
+<part name="R11" library="microbuilder" deviceset="RESISTOR" device="0603" value="680">
+<attribute name="PARTNO" value="MCT06030C6800FP500,Vishay / Beyschlag,,594-MCT06030C6800FP5,Thin Film Resistors - SMD .1W 680ohm 1% 0603 50ppm Auto, REF36"/>
+</part>
 <part name="U$21" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$22" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$23" library="microbuilder" deviceset="GND" device=""/>
-<part name="R12" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
-<part name="R14" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
-<part name="R15" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
-<part name="R16" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
-<part name="JTAG" library="microbuilder" deviceset="HEADER-1X6" device="ROUND"/>
+<part name="R12" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
+<part name="R14" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
+<part name="R15" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
+<part name="R16" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
+<part name="JTAG" library="microbuilder" deviceset="HEADER-1X6" device="ROUND">
+<attribute name="PARTNO" value="XG8V-0641,Omron Electronics,,653-XG8V-0641,6 pin header 1 row, REF2"/>
+</part>
 <part name="U$24" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="U$25" library="keves" deviceset="MIC37100" device=""/>
+<part name="U$25" library="keves" deviceset="MIC37100" device="">
+<attribute name="PARTNO" value="MIC37100-3.3WS TR,Micrel,,998-MIC37100-3.3WSTR,LDO Voltage Regulators 1.0A Low Voltage uCap LDO Regulator in SOT223 Pkg(ROHS Compliant), REF17"/>
+</part>
 <part name="U$26" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$27" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$28" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="C20" library="microbuilder" deviceset="CAP_CERAMIC" device="_0805" value="10uF X7R 0805"/>
-<part name="C21" library="microbuilder" deviceset="CAP_CERAMIC" device="_0805" value="10uF X7R 0805"/>
-<part name="C22" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
-<part name="R3" library="microbuilder" deviceset="RESISTOR" device="0603" value="680"/>
-<part name="LED_PWR" library="microbuilder" deviceset="LED" device="0603"/>
+<part name="C20" library="microbuilder" deviceset="CAP_CERAMIC" device="_0805" value="10uF X7R 0805">
+<attribute name="PARTNO" value="GRM21BR71A106KA73L,Murata Electronics,,81-GRM21BR71A106KA3L,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 10uF 10volts X7R + - 10%, REF29"/>
+</part>
+<part name="C21" library="microbuilder" deviceset="CAP_CERAMIC" device="_0805" value="10uF X7R 0805">
+<attribute name="PARTNO" value="GRM21BR71A106KA73L,Murata Electronics,,81-GRM21BR71A106KA3L,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 10uF 10volts X7R + - 10%, REF29"/>
+</part>
+<part name="C22" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
+<part name="R3" library="microbuilder" deviceset="RESISTOR" device="0603" value="680">
+<attribute name="PARTNO" value="MCT06030C6800FP500,Vishay / Beyschlag,,594-MCT06030C6800FP5,Thin Film Resistors - SMD .1W 680ohm 1% 0603 50ppm Auto, REF36"/>
+</part>
+<part name="LED_PWR" library="microbuilder" deviceset="LED" device="0603">
+<attribute name="PARTNO" value="VLMS1300-GS08,Vishay Semiconductors,,78-VLMS1300-GS08,Standard LEDs - SMD Super Red Clear Non-Diff, REF34"/>
+</part>
 <part name="U$29" library="microbuilder" deviceset="GND" device=""/>
-<part name="U1" library="microbuilder" deviceset="EEPROM_I2C_SOIC8_GENERIC" device="" value="24LC512"/>
-<part name="C23" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
+<part name="U1" library="microbuilder" deviceset="EEPROM_I2C_SOIC8_GENERIC" device="" value="24LC512">
+<attribute name="PARTNO" value="24LC512-I/SN,Microchip Technology,,579-24LC512-I/SN,EEPROM 512K 64K X 8 2.5V SER EE IND, REF10"/>
+</part>
+<part name="C23" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
 <part name="U$31" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$32" library="microbuilder" deviceset="GND" device=""/>
-<part name="R4" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
+<part name="R4" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
 <part name="U$30" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="R13" library="microbuilder" deviceset="RESISTOR" device="0603" value="2.2K"/>
-<part name="R17" library="microbuilder" deviceset="RESISTOR" device="0603" value="2.2K"/>
-<part name="FB1" library="microbuilder" deviceset="FERRITE" device="_0805"/>
-<part name="R18" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R13" library="microbuilder" deviceset="RESISTOR" device="0603" value="2.2K">
+<attribute name="PARTNO" value="MCT06030C2201FP500,Vishay / Beyschlag,,594-MCT06030C2201FP5,Thin Film Resistors - SMD .1W 2.2Kohm 1% 0603 50ppm Auto, REF24"/>
+</part>
+<part name="R17" library="microbuilder" deviceset="RESISTOR" device="0603" value="2.2K">
+<attribute name="PARTNO" value="MCT06030C2201FP500,Vishay / Beyschlag,,594-MCT06030C2201FP5,Thin Film Resistors - SMD .1W 2.2Kohm 1% 0603 50ppm Auto, REF24"/>
+</part>
+<part name="FB1" library="microbuilder" deviceset="FERRITE" device="_0805">
+<attribute name="PARTNO" value="HZ0805E601R-10,Laird Technologies,,875-HZ0805E601R-10,&quot;EMI Filter Beads, Chips &amp; Arrays 600ohms 100MHz .5A Monolithic 0805 SMD&quot;,0805 REF1"/>
+</part>
+<part name="R18" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$58" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="Q1" library="transistor-small-signal" deviceset="BC337" device=""/>
+<part name="Q1" library="transistor-small-signal" deviceset="BC337" device="">
+<attribute name="PARTNO" value="BC337-16 A1,Taiwan ,,821-BC337-16-A1,Bipolar Transistors - BJT NPN Transistor, REF16"/>
+</part>
 <part name="U$59" library="microbuilder" deviceset="GND" device=""/>
-<part name="R19" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
+<part name="R19" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
 <part name="U$60" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$61" library="microbuilder" deviceset="GND" device=""/>
-<part name="JP2" library="microbuilder" deviceset="JUMPER3" device=""/>
+<part name="JP2" library="microbuilder" deviceset="JUMPER3" device="">
+<attribute name="PARTNO" value="4-103327-5,TE Connectivity / AMP,,571-4-103327-5,3 pin header 1 row, REF3"/>
+</part>
 <part name="U$63" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$64" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="IC5" library="74xx-eu" deviceset="74*595" device="D" technology="HC"/>
-<part name="C24" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
+<part name="IC5" library="74xx-eu" deviceset="74*595" device="D" technology="HC">
+<attribute name="PARTNO" value="74HC595D,NXP Semiconductors,,771-74HC595D-T,Counter Shift Registers 8-BIT SHIFT REG W/OUTPUT LATCH, REF12"/>
+</part>
+<part name="C24" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
 <part name="U$67" library="microbuilder" deviceset="GND" device=""/>
-<part name="R20" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
-<part name="R21" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
-<part name="R22" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
+<part name="R20" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
+<part name="R21" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
+<part name="R22" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
 <part name="U$65" library="microbuilder" deviceset="GND" device=""/>
-<part name="LCD_POT1" library="BaseApp" deviceset="TRIMPOT" device="-67W" value="10K 67WR10KLF"/>
-<part name="LCD_POT2" library="BaseApp" deviceset="TRIMPOT" device="-67W" value="10K 67WR10KLF"/>
-<part name="C25" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF/500v"/>
-<part name="R23" library="microbuilder" deviceset="RESISTOR" device="0603" value="1M"/>
+<part name="LCD_POT1" library="BaseApp" deviceset="TRIMPOT" device="-67W" value="10K 67WR10KLF">
+<attribute name="PARTNO" value="67WR10KLF,BI Technologies / TT Electronics,,858-67WR10KLF,&quot;Trimmer Resistors - Through Hole 3/8&quot;&quot; Squ 10K 10%&quot;, REF28"/>
+</part>
+<part name="LCD_POT2" library="BaseApp" deviceset="TRIMPOT" device="-67W" value="10K 67WR10KLF">
+<attribute name="PARTNO" value="67WR10KLF,BI Technologies / TT Electronics,,858-67WR10KLF,&quot;Trimmer Resistors - Through Hole 3/8&quot;&quot; Squ 10K 10%&quot;, REF28"/>
+</part>
+<part name="C25" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF/500v">
+<attribute name="PARTNO" value="CGA3E3X7S2A104M080AB,TDK,,810-CGA3E3X7S2A104AB,Multilayer Ceramic Capacitors MLCC - SMD/SMT .1UF 100V 20% 0603, REF7"/>
+</part>
+<part name="R23" library="microbuilder" deviceset="RESISTOR" device="0603" value="1M">
+<attribute name="PARTNO" value="CRCW06031M00FKEA,Vishay / Dale,,71-CRCW0603-1.0M-E3,Thick Film Resistors - SMD 1/10watt 1.0Mohms 1%, REF8"/>
+</part>
 <part name="U$15" library="microbuilder" deviceset="GND" device=""/>
-<part name="C26" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="18pF"/>
-<part name="C27" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="18pF"/>
+<part name="C26" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="18pF">
+<attribute name="PARTNO" value="VJ0603A180JXACW1BC,Vishay / Vitramon,,77-VJ0603A180JXACBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 18pF 50volts C0G 5%, REF30"/>
+</part>
+<part name="C27" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="18pF">
+<attribute name="PARTNO" value="VJ0603A180JXACW1BC,Vishay / Vitramon,,77-VJ0603A180JXACBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 18pF 50volts C0G 5%, REF30"/>
+</part>
 <part name="U$33" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$34" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$35" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="MIDI_IN1" library="keves" deviceset="MIDIJACK" device=""/>
-<part name="MIDI_OUT1" library="keves" deviceset="MIDIJACK" device=""/>
-<part name="R24" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
-<part name="R25" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
-<part name="R26" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
+<part name="MIDI_IN1" library="keves" deviceset="MIDIJACK" device="">
+<attribute name="PARTNO" value="57PC5F,Switchcraft,,502-57PC5F,DIN Connectors 5 COND 180 DIN CONN, REF37"/>
+</part>
+<part name="MIDI_OUT1" library="keves" deviceset="MIDIJACK" device="">
+<attribute name="PARTNO" value="57PC5F,Switchcraft,,502-57PC5F,DIN Connectors 5 COND 180 DIN CONN, REF37"/>
+</part>
+<part name="R24" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
+<part name="R25" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
+<part name="R26" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
 <part name="U$36" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$37" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="D1" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N4148WS"/>
-<part name="IC1" library="6n138" deviceset="6N138" device="SMD" value="6N138S-TA1"/>
+<part name="D1" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N4148WS">
+<attribute name="PARTNO" value="1N4148WSFL-G3-08,Vishay Semiconductors,,78-1N4148WSFL-G3-08,&quot;Diodes - General Purpose, Power, Switching 100volt 350mA 4ns&quot;, REF22"/>
+</part>
+<part name="IC1" library="6n138" deviceset="6N138" device="SMD" value="6N138S-TA1">
+<attribute name="PARTNO" value="6N138S-TA1,Lite-On,,859-6N138STA1,High Speed Optocouplers Darlington 100KBd Transistor Output, REF27"/>
+</part>
 <part name="U$38" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="R27" library="microbuilder" deviceset="RESISTOR" device="_0603" value="4.7K"/>
+<part name="R27" library="microbuilder" deviceset="RESISTOR" device="_0603" value="4.7K">
+<attribute name="PARTNO" value="MCT06030C4701FP500,Vishay,,594-MCT06030C4701FP5,Thin Film Resistors - SMD .1W 4.7Kohms 1% 0603 50ppm Auto, REF26"/>
+</part>
 <part name="U$39" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$40" library="microbuilder" deviceset="GND" device=""/>
-<part name="R28" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
+<part name="R28" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
 <part name="U$41" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="MIDI_IN2" library="keves" deviceset="MIDIJACK" device=""/>
-<part name="MIDI_OUT2" library="keves" deviceset="MIDIJACK" device=""/>
-<part name="R29" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
-<part name="R30" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
-<part name="R31" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220"/>
+<part name="MIDI_IN2" library="keves" deviceset="MIDIJACK" device="">
+<attribute name="PARTNO" value="57PC5F,Switchcraft,,502-57PC5F,DIN Connectors 5 COND 180 DIN CONN, REF37"/>
+</part>
+<part name="MIDI_OUT2" library="keves" deviceset="MIDIJACK" device="">
+<attribute name="PARTNO" value="57PC5F,Switchcraft,,502-57PC5F,DIN Connectors 5 COND 180 DIN CONN, REF37"/>
+</part>
+<part name="R29" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
+<part name="R30" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
+<part name="R31" library="microbuilder" deviceset="RESISTOR" device="_0603" value="220">
+<attribute name="PARTNO" value="MCT06030C2200FP500,Vishay / Beyschlag,,594-MCT06030C2200FP5,Thin Film Resistors - SMD .1W 220ohm 1% 0603 50ppm Auto, REF43"/>
+</part>
 <part name="U$42" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$43" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="D2" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N4148WS"/>
-<part name="IC2" library="6n138" deviceset="6N138" device="SMD" value="6N138S-TA1"/>
+<part name="D2" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N4148WS">
+<attribute name="PARTNO" value="1N4148WSFL-G3-08,Vishay Semiconductors,,78-1N4148WSFL-G3-08,&quot;Diodes - General Purpose, Power, Switching 100volt 350mA 4ns&quot;, REF22"/>
+</part>
+<part name="IC2" library="6n138" deviceset="6N138" device="SMD" value="6N138S-TA1">
+<attribute name="PARTNO" value="6N138S-TA1,Lite-On,,859-6N138STA1,High Speed Optocouplers Darlington 100KBd Transistor Output, REF27"/>
+</part>
 <part name="U$44" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="R32" library="microbuilder" deviceset="RESISTOR" device="_0603" value="4.7K"/>
+<part name="R32" library="microbuilder" deviceset="RESISTOR" device="_0603" value="4.7K">
+<attribute name="PARTNO" value="MCT06030C4701FP500,Vishay,,594-MCT06030C4701FP5,Thin Film Resistors - SMD .1W 4.7Kohms 1% 0603 50ppm Auto, REF26"/>
+</part>
 <part name="U$45" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$46" library="microbuilder" deviceset="GND" device=""/>
-<part name="R33" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K"/>
+<part name="R33" library="microbuilder" deviceset="RESISTOR" device="_0603" value="1K">
+<attribute name="PARTNO" value="CRCW06031K00FKEA,Vishay / Dale,,71-CRCW0603-1.0K-E3,Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%, REF41"/>
+</part>
 <part name="U$47" library="microbuilder" deviceset="5.0V" device=""/>
-<part name="LCD1" library="NHD-C0220AA-FSW-FTW" deviceset="NHD-C0220AA-FSW-FTW" device=""/>
+<part name="LCD1" library="NHD-C0220AA-FSW-FTW" deviceset="NHD-C0220AA-FSW-FTW" device="">
+<attribute name="PARTNO" value="NHD-C0220AA-FSW-FTW,Newhaven Display,,763-C0220AA-FSW-FTW,LCD Character Display Modules &amp; Accessories COG FSTN(+) 2x20 White Transflective, REF19"/>
+</part>
 <part name="U$48" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$49" library="microbuilder" deviceset="GND" device=""/>
 <part name="H1" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H2" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H3" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H4" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
-<part name="SW1" library="switch-alps" deviceset="EC12E_SW" device="" value="Encoder"/>
+<part name="SW1" library="switch-alps" deviceset="EC12E_SW" device="" value="Encoder">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$50" library="microbuilder" deviceset="GND" device=""/>
-<part name="S1" library="og-switch" deviceset="40-XX" device=""/>
+<part name="S1" library="og-switch" deviceset="40-XX" device="">
+<attribute name="PARTNO" value="TL1100F160Q,E-Switch,,612-TL1100,Tactile Switches 12X7.3MM 160GF, REF38"/>
+</part>
 <part name="U$51" library="microbuilder" deviceset="GND" device=""/>
-<part name="R34" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R34" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$52" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="S2" library="og-switch" deviceset="40-XX" device=""/>
+<part name="S2" library="og-switch" deviceset="40-XX" device="">
+<attribute name="PARTNO" value="TL1100F160Q,E-Switch,,612-TL1100,Tactile Switches 12X7.3MM 160GF, REF38"/>
+</part>
 <part name="U$53" library="microbuilder" deviceset="GND" device=""/>
-<part name="R35" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R35" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$54" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="S3" library="og-switch" deviceset="40-XX" device=""/>
+<part name="S3" library="og-switch" deviceset="40-XX" device="">
+<attribute name="PARTNO" value="TL1100F160Q,E-Switch,,612-TL1100,Tactile Switches 12X7.3MM 160GF, REF38"/>
+</part>
 <part name="U$55" library="microbuilder" deviceset="GND" device=""/>
-<part name="R36" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R36" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$56" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="S4" library="og-switch" deviceset="40-XX" device=""/>
+<part name="S4" library="og-switch" deviceset="40-XX" device="">
+<attribute name="PARTNO" value="TL1100F160Q,E-Switch,,612-TL1100,Tactile Switches 12X7.3MM 160GF, REF38"/>
+</part>
 <part name="U$57" library="microbuilder" deviceset="GND" device=""/>
-<part name="R37" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R37" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$62" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="S5" library="og-switch" deviceset="40-XX" device=""/>
+<part name="S5" library="og-switch" deviceset="40-XX" device="">
+<attribute name="PARTNO" value="TL1100F160Q,E-Switch,,612-TL1100,Tactile Switches 12X7.3MM 160GF, REF38"/>
+</part>
 <part name="U$66" library="microbuilder" deviceset="GND" device=""/>
-<part name="R38" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K"/>
+<part name="R38" library="microbuilder" deviceset="RESISTOR" device="_0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$68" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="SW2" library="switch-alps" deviceset="EC12E_SW" device="" value="Encoder"/>
+<part name="SW2" library="switch-alps" deviceset="EC12E_SW" device="" value="Encoder">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$69" library="microbuilder" deviceset="GND" device=""/>
-<part name="R39" library="pot-alps" deviceset="POT_US" device="" value="POT"/>
+<part name="R39" library="pot-alps" deviceset="POT_US" device="" value="POT">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$70" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$71" library="microbuilder" deviceset="GND" device=""/>
-<part name="R40" library="pot-alps" deviceset="POT_US" device="" value="POT"/>
+<part name="R40" library="pot-alps" deviceset="POT_US" device="" value="POT">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$72" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$73" library="microbuilder" deviceset="GND" device=""/>
-<part name="R41" library="pot-alps" deviceset="POT_US" device="" value="POT"/>
+<part name="R41" library="pot-alps" deviceset="POT_US" device="" value="POT">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$74" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$75" library="microbuilder" deviceset="GND" device=""/>
-<part name="R42" library="pot-alps" deviceset="POT_US" device="" value="POT"/>
+<part name="R42" library="pot-alps" deviceset="POT_US" device="" value="POT">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$76" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$77" library="microbuilder" deviceset="GND" device=""/>
-<part name="R43" library="pot-alps" deviceset="POT_US" device="" value="POT"/>
+<part name="R43" library="pot-alps" deviceset="POT_US" device="" value="POT">
+<attribute name="PARTNO" value="RK09D1130C2P,ALPS,,688-RK09D1130C2P,Potentiometers 9MM 10K V/ADJ, REF39"/>
+</part>
 <part name="U$78" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$79" library="microbuilder" deviceset="GND" device=""/>
 <part name="FLASH1" library="vovtech" deviceset="FLASH-SPI" device="" value="AT25DF641A or MX25L6406E"/>
 <part name="U$6" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$80" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="C3" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF"/>
+<part name="C3" library="microbuilder" deviceset="CAP_CERAMIC" device="0603" value="0.1uF">
+<attribute name="PARTNO" value="VJ0603Y104JXJPW1BC,Vishay / Vitramon,,77-VJ0603Y104JXJPBC,Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.1uF 16volts X7R 5%, REF44"/>
+</part>
 <part name="U$81" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$82" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$83" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$84" library="microbuilder" deviceset="GND" device=""/>
-<part name="SPI_A" library="pinhead" deviceset="PINHD-2X6" device=""/>
+<part name="SPI_A" library="pinhead" deviceset="PINHD-2X6" device="">
+<attribute name="PARTNO" value="67996-412HLF,FCI,,649-67996-412HLF,6x2 header pins, REF4"/>
+</part>
 <part name="U$85" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$86" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$87" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$88" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$89" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$90" library="microbuilder" deviceset="GND" device=""/>
-<part name="SPI_B" library="pinhead" deviceset="PINHD-2X7" device=""/>
+<part name="SPI_B" library="pinhead" deviceset="PINHD-2X7" device="">
+<attribute name="PARTNO" value="67997-414HLF,FCI,,649-67997-414HLF,7x2 header pins, REF5"/>
+</part>
 <part name="U$91" library="microbuilder" deviceset="5.0V" device=""/>
 <part name="U$92" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$93" library="microbuilder" deviceset="3.3V" device=""/>
 <part name="U$94" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="R44" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K"/>
+<part name="R44" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$95" library="microbuilder" deviceset="3.3V" device=""/>
-<part name="R45" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K"/>
+<part name="R45" library="microbuilder" deviceset="RESISTOR" device="0603" value="10K">
+<attribute name="PARTNO" value="CRCW060310K0FKEA,Vishay / Dale,,71-CRCW0603-10K-E3,Thick Film Resistors - SMD 1/10watt 10Kohms 1%, REF35"/>
+</part>
 <part name="U$96" library="microbuilder" deviceset="GND" device=""/>
-<part name="R46" library="microbuilder" deviceset="RESISTOR" device="0603" value="0"/>
+<part name="R46" library="microbuilder" deviceset="RESISTOR" device="0603" value="0">
+<attribute name="PARTNO" value="MCT06030Z0000ZP500,Vishay / Beyschlag,,594-MCT06030Z0000ZP5,Thin Film Resistors - SMD Zero ohm Jumper, REF40"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -5073,89 +5287,197 @@ www.vovtech.com
 <text x="199.39" y="133.35" size="1.778" layer="97">USB_VBUS</text>
 </plain>
 <instances>
-<instance part="STM32F407XX1" gate="G$1" x="104.14" y="83.82"/>
+<instance part="STM32F407XX1" gate="G$1" x="104.14" y="83.82">
+<attribute name="PARTNO" x="104.14" y="83.82" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$1" gate="G$1" x="35.56" y="175.26"/>
 <instance part="U$2" gate="G$1" x="30.48" y="142.24" rot="R270"/>
 <instance part="U$3" gate="G$1" x="30.48" y="116.84" rot="R270"/>
-<instance part="C1" gate="G$1" x="15.24" y="144.78" rot="R180"/>
-<instance part="C2" gate="G$1" x="10.16" y="144.78" rot="R180"/>
+<instance part="C1" gate="G$1" x="15.24" y="144.78" rot="R180">
+<attribute name="PARTNO" x="15.24" y="144.78" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C2" gate="G$1" x="10.16" y="144.78" rot="R180">
+<attribute name="PARTNO" x="10.16" y="144.78" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$4" gate="G$1" x="12.7" y="137.16"/>
 <instance part="U$5" gate="G$1" x="5.08" y="111.76" rot="R90"/>
-<instance part="C4" gate="G$1" x="22.86" y="162.56"/>
-<instance part="C5" gate="G$1" x="12.7" y="162.56"/>
-<instance part="C6" gate="G$1" x="2.54" y="162.56"/>
-<instance part="C7" gate="G$1" x="-7.62" y="162.56"/>
-<instance part="C8" gate="G$1" x="-17.78" y="162.56"/>
-<instance part="C9" gate="G$1" x="-27.94" y="162.56"/>
-<instance part="C10" gate="G$1" x="-38.1" y="162.56"/>
+<instance part="C4" gate="G$1" x="22.86" y="162.56">
+<attribute name="PARTNO" x="22.86" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C5" gate="G$1" x="12.7" y="162.56">
+<attribute name="PARTNO" x="12.7" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C6" gate="G$1" x="2.54" y="162.56">
+<attribute name="PARTNO" x="2.54" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C7" gate="G$1" x="-7.62" y="162.56">
+<attribute name="PARTNO" x="-7.62" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C8" gate="G$1" x="-17.78" y="162.56">
+<attribute name="PARTNO" x="-17.78" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C9" gate="G$1" x="-27.94" y="162.56">
+<attribute name="PARTNO" x="-27.94" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C10" gate="G$1" x="-38.1" y="162.56">
+<attribute name="PARTNO" x="-38.1" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$7" gate="G$1" x="-38.1" y="156.21"/>
-<instance part="C12" gate="G$1" x="0" y="129.54"/>
-<instance part="C13" gate="G$1" x="0" y="116.84"/>
-<instance part="C14" gate="G$1" x="-5.08" y="132.08" rot="R180"/>
-<instance part="C15" gate="G$1" x="-5.08" y="119.38" rot="R180"/>
+<instance part="C12" gate="G$1" x="0" y="129.54">
+<attribute name="PARTNO" x="0" y="129.54" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C13" gate="G$1" x="0" y="116.84">
+<attribute name="PARTNO" x="0" y="116.84" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C14" gate="G$1" x="-5.08" y="132.08" rot="R180">
+<attribute name="PARTNO" x="-5.08" y="132.08" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C15" gate="G$1" x="-5.08" y="119.38" rot="R180">
+<attribute name="PARTNO" x="-5.08" y="119.38" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$8" gate="G$1" x="5.08" y="124.46" rot="R90"/>
-<instance part="R1" gate="G$1" x="-17.78" y="114.3"/>
+<instance part="R1" gate="G$1" x="-17.78" y="114.3">
+<attribute name="PARTNO" x="-17.78" y="114.3" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$9" gate="G$1" x="-40.64" y="134.62" rot="R90"/>
-<instance part="R2" gate="G$1" x="27.94" y="106.68"/>
+<instance part="R2" gate="G$1" x="27.94" y="106.68">
+<attribute name="PARTNO" x="27.94" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$10" gate="G$1" x="17.78" y="106.68" rot="R270"/>
-<instance part="Y1" gate="G$1" x="-12.7" y="97.79" rot="R270"/>
-<instance part="C16" gate="G$1" x="-20.32" y="101.6" rot="R90"/>
-<instance part="C17" gate="G$1" x="-22.86" y="93.98" rot="R270"/>
+<instance part="Y1" gate="G$1" x="-12.7" y="97.79" rot="R270">
+<attribute name="PARTNO" x="-12.7" y="97.79" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C16" gate="G$1" x="-20.32" y="101.6" rot="R90">
+<attribute name="PARTNO" x="-20.32" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C17" gate="G$1" x="-22.86" y="93.98" rot="R270">
+<attribute name="PARTNO" x="-22.86" y="93.98" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$11" gate="G$1" x="-30.48" y="93.98" rot="R270"/>
 <instance part="U$12" gate="G$1" x="-30.48" y="101.6" rot="R270"/>
-<instance part="R5" gate="G$1" x="7.62" y="60.96" rot="R90"/>
+<instance part="R5" gate="G$1" x="7.62" y="60.96" rot="R90">
+<attribute name="PARTNO" x="7.62" y="60.96" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$13" gate="G$1" x="7.62" y="71.12"/>
-<instance part="U$14" gate="G$1" x="21.59" y="190.5"/>
-<instance part="PRTR5V0U2X1" gate="G$1" x="-6.35" y="210.82"/>
+<instance part="U$14" gate="G$1" x="21.59" y="190.5">
+<attribute name="PARTNO" x="21.59" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="PRTR5V0U2X1" gate="G$1" x="-6.35" y="210.82">
+<attribute name="PARTNO" x="-6.35" y="210.82" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$16" gate="G$1" x="-41.91" y="185.42"/>
 <instance part="U$17" gate="G$1" x="-44.45" y="193.04" rot="R90"/>
-<instance part="R6" gate="G$1" x="-5.08" y="195.58" rot="R180"/>
-<instance part="R7" gate="G$1" x="-6.35" y="198.12" rot="R180"/>
-<instance part="C18" gate="G$1" x="44.45" y="190.5"/>
+<instance part="R6" gate="G$1" x="-5.08" y="195.58" rot="R180">
+<attribute name="PARTNO" x="-5.08" y="195.58" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R7" gate="G$1" x="-6.35" y="198.12" rot="R180">
+<attribute name="PARTNO" x="-6.35" y="198.12" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C18" gate="G$1" x="44.45" y="190.5">
+<attribute name="PARTNO" x="44.45" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$18" gate="G$1" x="44.45" y="184.15"/>
-<instance part="SW_RST" gate="G$1" x="58.42" y="191.77" rot="R270"/>
-<instance part="R8" gate="G$1" x="82.55" y="196.85"/>
-<instance part="SW_USER" gate="G$1" x="93.98" y="191.77" rot="R270"/>
-<instance part="R9" gate="G$1" x="106.68" y="196.85"/>
+<instance part="SW_RST" gate="G$1" x="58.42" y="191.77" rot="R270">
+<attribute name="PARTNO" x="58.42" y="191.77" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R8" gate="G$1" x="82.55" y="196.85">
+<attribute name="PARTNO" x="82.55" y="196.85" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="SW_USER" gate="G$1" x="93.98" y="191.77" rot="R270">
+<attribute name="PARTNO" x="93.98" y="191.77" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R9" gate="G$1" x="106.68" y="196.85">
+<attribute name="PARTNO" x="106.68" y="196.85" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$19" gate="G$1" x="115.57" y="196.85" rot="R90"/>
 <instance part="U$20" gate="G$1" x="91.44" y="182.88" rot="R180"/>
-<instance part="LED1" gate="G$1" x="130.81" y="198.12" rot="R180"/>
-<instance part="LED2" gate="G$1" x="130.81" y="190.5" rot="R180"/>
-<instance part="R10" gate="G$1" x="143.51" y="198.12"/>
-<instance part="R11" gate="G$1" x="143.51" y="190.5"/>
+<instance part="LED1" gate="G$1" x="130.81" y="198.12" rot="R180">
+<attribute name="PARTNO" x="130.81" y="198.12" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED2" gate="G$1" x="130.81" y="190.5" rot="R180">
+<attribute name="PARTNO" x="130.81" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R10" gate="G$1" x="143.51" y="198.12">
+<attribute name="PARTNO" x="143.51" y="198.12" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R11" gate="G$1" x="143.51" y="190.5">
+<attribute name="PARTNO" x="143.51" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$21" gate="G$1" x="123.19" y="198.12" rot="R270"/>
 <instance part="U$22" gate="G$1" x="123.19" y="190.5" rot="R270"/>
 <instance part="U$23" gate="G$1" x="194.31" y="194.31" rot="R90"/>
-<instance part="R12" gate="G$1" x="176.53" y="196.85"/>
-<instance part="R14" gate="G$1" x="176.53" y="191.77"/>
-<instance part="R15" gate="G$1" x="176.53" y="189.23"/>
-<instance part="R16" gate="G$1" x="176.53" y="186.69"/>
-<instance part="JTAG" gate="A" x="162.56" y="191.77" rot="MR0"/>
+<instance part="R12" gate="G$1" x="176.53" y="196.85">
+<attribute name="PARTNO" x="176.53" y="196.85" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R14" gate="G$1" x="176.53" y="191.77">
+<attribute name="PARTNO" x="176.53" y="191.77" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R15" gate="G$1" x="176.53" y="189.23">
+<attribute name="PARTNO" x="176.53" y="189.23" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R16" gate="G$1" x="176.53" y="186.69">
+<attribute name="PARTNO" x="176.53" y="186.69" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="JTAG" gate="A" x="162.56" y="191.77" rot="MR0">
+<attribute name="PARTNO" x="162.56" y="191.77" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$24" gate="G$1" x="194.31" y="199.39" rot="R270"/>
-<instance part="U$25" gate="G$1" x="-99.06" y="200.66"/>
+<instance part="U$25" gate="G$1" x="-99.06" y="200.66">
+<attribute name="PARTNO" x="-99.06" y="200.66" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$26" gate="G$1" x="-125.73" y="200.66" rot="R90"/>
 <instance part="U$27" gate="G$1" x="-100.33" y="187.96"/>
 <instance part="U$28" gate="G$1" x="-46.99" y="200.66" rot="R270"/>
-<instance part="C20" gate="G$1" x="-119.38" y="195.58" rot="R180"/>
-<instance part="C21" gate="G$1" x="-86.36" y="193.04"/>
-<instance part="C22" gate="G$1" x="-66.04" y="193.04"/>
-<instance part="R3" gate="G$1" x="-54.61" y="195.58" rot="R90"/>
-<instance part="LED_PWR" gate="G$1" x="-54.61" y="182.88" rot="R270"/>
+<instance part="C20" gate="G$1" x="-119.38" y="195.58" rot="R180">
+<attribute name="PARTNO" x="-119.38" y="195.58" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C21" gate="G$1" x="-86.36" y="193.04">
+<attribute name="PARTNO" x="-86.36" y="193.04" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C22" gate="G$1" x="-66.04" y="193.04">
+<attribute name="PARTNO" x="-66.04" y="193.04" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R3" gate="G$1" x="-54.61" y="195.58" rot="R90">
+<attribute name="PARTNO" x="-54.61" y="195.58" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LED_PWR" gate="G$1" x="-54.61" y="182.88" rot="R270">
+<attribute name="PARTNO" x="-54.61" y="182.88" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$29" gate="G$1" x="-54.61" y="175.26"/>
-<instance part="U1" gate="G$1" x="-110.49" y="132.08"/>
-<instance part="C23" gate="G$1" x="-96.52" y="130.81"/>
+<instance part="U1" gate="G$1" x="-110.49" y="132.08">
+<attribute name="PARTNO" x="-110.49" y="132.08" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C23" gate="G$1" x="-96.52" y="130.81">
+<attribute name="PARTNO" x="-96.52" y="130.81" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$31" gate="G$1" x="-96.52" y="121.92"/>
 <instance part="U$32" gate="G$1" x="-124.46" y="134.62" rot="R270"/>
-<instance part="R4" gate="G$1" x="-96.52" y="158.75" rot="R90"/>
+<instance part="R4" gate="G$1" x="-96.52" y="158.75" rot="R90">
+<attribute name="PARTNO" x="-96.52" y="158.75" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$30" gate="G$1" x="-96.52" y="167.64"/>
-<instance part="R13" gate="G$1" x="-138.43" y="147.32" rot="R90"/>
-<instance part="R17" gate="G$1" x="-130.81" y="147.32" rot="R90"/>
-<instance part="FB1" gate="G$1" x="-33.02" y="134.62"/>
-<instance part="C25" gate="G$1" x="25.4" y="177.8"/>
-<instance part="R23" gate="G$1" x="20.32" y="177.8" rot="R90"/>
+<instance part="R13" gate="G$1" x="-138.43" y="147.32" rot="R90">
+<attribute name="PARTNO" x="-138.43" y="147.32" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R17" gate="G$1" x="-130.81" y="147.32" rot="R90">
+<attribute name="PARTNO" x="-130.81" y="147.32" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="FB1" gate="G$1" x="-33.02" y="134.62">
+<attribute name="PARTNO" x="-33.02" y="134.62" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C25" gate="G$1" x="25.4" y="177.8">
+<attribute name="PARTNO" x="25.4" y="177.8" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R23" gate="G$1" x="20.32" y="177.8" rot="R90">
+<attribute name="PARTNO" x="20.32" y="177.8" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$15" gate="G$1" x="24.13" y="170.18"/>
-<instance part="C26" gate="G$1" x="-130.81" y="128.27" rot="R180"/>
-<instance part="C27" gate="G$1" x="-138.43" y="128.27" rot="R180"/>
+<instance part="C26" gate="G$1" x="-130.81" y="128.27" rot="R180">
+<attribute name="PARTNO" x="-130.81" y="128.27" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C27" gate="G$1" x="-138.43" y="128.27" rot="R180">
+<attribute name="PARTNO" x="-138.43" y="128.27" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$33" gate="G$1" x="-130.81" y="119.38"/>
 <instance part="U$34" gate="G$1" x="-138.43" y="119.38"/>
 <instance part="U$35" gate="G$1" x="203.2" y="132.08" rot="R270"/>
@@ -5166,28 +5488,40 @@ www.vovtech.com
 <instance part="FLASH1" gate="G$1" x="-109.22" y="67.31"/>
 <instance part="U$6" gate="G$1" x="-109.22" y="50.8"/>
 <instance part="U$80" gate="G$1" x="-109.22" y="83.82"/>
-<instance part="C3" gate="G$1" x="-104.14" y="82.55"/>
+<instance part="C3" gate="G$1" x="-104.14" y="82.55">
+<attribute name="PARTNO" x="-104.14" y="82.55" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$81" gate="G$1" x="-104.14" y="92.71" rot="R180"/>
 <instance part="U$82" gate="G$1" x="-128.27" y="59.69" rot="R90"/>
 <instance part="U$83" gate="G$1" x="-120.65" y="16.51" rot="R90"/>
 <instance part="U$84" gate="G$1" x="-96.52" y="13.97" rot="R90"/>
-<instance part="SPI_A" gate="A" x="-109.22" y="11.43"/>
+<instance part="SPI_A" gate="A" x="-109.22" y="11.43">
+<attribute name="PARTNO" x="-109.22" y="11.43" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$85" gate="G$1" x="-96.52" y="16.51" rot="R270"/>
 <instance part="U$86" gate="G$1" x="-120.65" y="13.97" rot="R270"/>
 <instance part="U$87" gate="G$1" x="-120.65" y="11.43" rot="R90"/>
 <instance part="U$88" gate="G$1" x="-96.52" y="11.43" rot="R270"/>
 <instance part="U$89" gate="G$1" x="-83.82" y="16.51" rot="R90"/>
 <instance part="U$90" gate="G$1" x="-59.69" y="13.97" rot="R90"/>
-<instance part="SPI_B" gate="A" x="-72.39" y="8.89"/>
+<instance part="SPI_B" gate="A" x="-72.39" y="8.89">
+<attribute name="PARTNO" x="-72.39" y="8.89" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$91" gate="G$1" x="-59.69" y="16.51" rot="R270"/>
 <instance part="U$92" gate="G$1" x="-83.82" y="13.97" rot="R270"/>
 <instance part="U$93" gate="G$1" x="-83.82" y="11.43" rot="R90"/>
 <instance part="U$94" gate="G$1" x="-59.69" y="11.43" rot="R270"/>
-<instance part="R44" gate="G$1" x="44.45" y="204.47" rot="R90"/>
+<instance part="R44" gate="G$1" x="44.45" y="204.47" rot="R90">
+<attribute name="PARTNO" x="44.45" y="204.47" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$95" gate="G$1" x="44.45" y="214.63"/>
-<instance part="R45" gate="G$1" x="15.24" y="60.96" rot="R90"/>
+<instance part="R45" gate="G$1" x="15.24" y="60.96" rot="R90">
+<attribute name="PARTNO" x="15.24" y="60.96" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$96" gate="G$1" x="15.24" y="71.12" rot="R180"/>
-<instance part="R46" gate="G$1" x="191.77" y="132.08"/>
+<instance part="R46" gate="G$1" x="191.77" y="132.08">
+<attribute name="PARTNO" x="191.77" y="132.08" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6340,68 +6674,126 @@ www.vovtech.com
 <plain>
 </plain>
 <instances>
-<instance part="R18" gate="G$1" x="147.32" y="50.8" rot="R90"/>
+<instance part="R18" gate="G$1" x="147.32" y="50.8" rot="R90">
+<attribute name="PARTNO" x="147.32" y="50.8" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$58" gate="G$1" x="147.32" y="60.96"/>
-<instance part="Q1" gate="1" x="165.1" y="43.18"/>
+<instance part="Q1" gate="1" x="165.1" y="43.18">
+<attribute name="PARTNO" x="165.1" y="43.18" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$59" gate="G$1" x="167.64" y="33.02"/>
-<instance part="R19" gate="G$1" x="167.64" y="55.88" rot="R90"/>
+<instance part="R19" gate="G$1" x="167.64" y="55.88" rot="R90">
+<attribute name="PARTNO" x="167.64" y="55.88" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$60" gate="G$1" x="154.94" y="71.12" rot="R90"/>
 <instance part="U$61" gate="G$1" x="177.8" y="71.12" rot="R90"/>
-<instance part="JP2" gate="1" x="101.6" y="0"/>
+<instance part="JP2" gate="1" x="101.6" y="0">
+<attribute name="PARTNO" x="101.6" y="0" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$63" gate="G$1" x="96.52" y="-2.54" rot="R90"/>
 <instance part="U$64" gate="G$1" x="106.68" y="-2.54" rot="R270"/>
-<instance part="IC5" gate="A" x="144.78" y="-15.24"/>
+<instance part="IC5" gate="A" x="144.78" y="-15.24">
+<attribute name="PARTNO" x="144.78" y="-15.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="IC5" gate="P" x="144.78" y="-38.1" rot="R90"/>
-<instance part="C24" gate="G$1" x="142.24" y="-43.18" rot="R270"/>
+<instance part="C24" gate="G$1" x="142.24" y="-43.18" rot="R270">
+<attribute name="PARTNO" x="142.24" y="-43.18" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$67" gate="G$1" x="154.94" y="-43.18" rot="R90"/>
-<instance part="R20" gate="G$1" x="43.18" y="-30.48" rot="R90"/>
-<instance part="R21" gate="G$1" x="50.8" y="-30.48" rot="R90"/>
-<instance part="R22" gate="G$1" x="58.42" y="-30.48" rot="R90"/>
+<instance part="R20" gate="G$1" x="43.18" y="-30.48" rot="R90">
+<attribute name="PARTNO" x="43.18" y="-30.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R21" gate="G$1" x="50.8" y="-30.48" rot="R90">
+<attribute name="PARTNO" x="50.8" y="-30.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R22" gate="G$1" x="58.42" y="-30.48" rot="R90">
+<attribute name="PARTNO" x="58.42" y="-30.48" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$65" gate="G$1" x="119.38" y="71.12" rot="R270"/>
-<instance part="LCD_POT1" gate="G$1" x="132.08" y="71.12" rot="R270"/>
-<instance part="LCD_POT2" gate="G$1" x="167.64" y="71.12" rot="R270"/>
-<instance part="LCD1" gate="G$1" x="210.82" y="-15.24" rot="R270"/>
+<instance part="LCD_POT1" gate="G$1" x="132.08" y="71.12" rot="R270">
+<attribute name="PARTNO" x="132.08" y="71.12" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LCD_POT2" gate="G$1" x="167.64" y="71.12" rot="R270">
+<attribute name="PARTNO" x="167.64" y="71.12" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="LCD1" gate="G$1" x="210.82" y="-15.24" rot="R270">
+<attribute name="PARTNO" x="210.82" y="-15.24" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$48" gate="G$1" x="213.36" y="15.24"/>
 <instance part="U$49" gate="G$1" x="195.58" y="7.62" rot="R180"/>
-<instance part="SW1" gate="G$1" x="96.52" y="43.18" rot="R90"/>
+<instance part="SW1" gate="G$1" x="96.52" y="43.18" rot="R90">
+<attribute name="PARTNO" x="96.52" y="43.18" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SW1" gate="G$2" x="91.44" y="53.34"/>
 <instance part="U$50" gate="G$1" x="104.14" y="53.34" rot="R90"/>
-<instance part="S1" gate="1" x="63.5" y="101.6" rot="MR180"/>
+<instance part="S1" gate="1" x="63.5" y="101.6" rot="MR180">
+<attribute name="PARTNO" x="63.5" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$51" gate="G$1" x="63.5" y="93.98"/>
-<instance part="R34" gate="G$1" x="63.5" y="111.76" rot="R90"/>
+<instance part="R34" gate="G$1" x="63.5" y="111.76" rot="R90">
+<attribute name="PARTNO" x="63.5" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$52" gate="G$1" x="63.5" y="121.92"/>
-<instance part="S2" gate="1" x="88.9" y="101.6" rot="MR180"/>
+<instance part="S2" gate="1" x="88.9" y="101.6" rot="MR180">
+<attribute name="PARTNO" x="88.9" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$53" gate="G$1" x="88.9" y="93.98"/>
-<instance part="R35" gate="G$1" x="88.9" y="111.76" rot="R90"/>
+<instance part="R35" gate="G$1" x="88.9" y="111.76" rot="R90">
+<attribute name="PARTNO" x="88.9" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$54" gate="G$1" x="88.9" y="121.92"/>
-<instance part="S3" gate="1" x="109.22" y="101.6" rot="MR180"/>
+<instance part="S3" gate="1" x="109.22" y="101.6" rot="MR180">
+<attribute name="PARTNO" x="109.22" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$55" gate="G$1" x="109.22" y="93.98"/>
-<instance part="R36" gate="G$1" x="109.22" y="111.76" rot="R90"/>
+<instance part="R36" gate="G$1" x="109.22" y="111.76" rot="R90">
+<attribute name="PARTNO" x="109.22" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$56" gate="G$1" x="109.22" y="121.92"/>
-<instance part="S4" gate="1" x="134.62" y="101.6" rot="MR180"/>
+<instance part="S4" gate="1" x="134.62" y="101.6" rot="MR180">
+<attribute name="PARTNO" x="134.62" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$57" gate="G$1" x="134.62" y="93.98"/>
-<instance part="R37" gate="G$1" x="134.62" y="111.76" rot="R90"/>
+<instance part="R37" gate="G$1" x="134.62" y="111.76" rot="R90">
+<attribute name="PARTNO" x="134.62" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$62" gate="G$1" x="134.62" y="121.92"/>
-<instance part="S5" gate="1" x="157.48" y="101.6" rot="MR180"/>
+<instance part="S5" gate="1" x="157.48" y="101.6" rot="MR180">
+<attribute name="PARTNO" x="157.48" y="101.6" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$66" gate="G$1" x="157.48" y="93.98"/>
-<instance part="R38" gate="G$1" x="157.48" y="111.76" rot="R90"/>
+<instance part="R38" gate="G$1" x="157.48" y="111.76" rot="R90">
+<attribute name="PARTNO" x="157.48" y="111.76" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$68" gate="G$1" x="157.48" y="121.92"/>
-<instance part="SW2" gate="G$1" x="96.52" y="22.86" rot="R90"/>
+<instance part="SW2" gate="G$1" x="96.52" y="22.86" rot="R90">
+<attribute name="PARTNO" x="96.52" y="22.86" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SW2" gate="G$2" x="91.44" y="33.02"/>
 <instance part="U$69" gate="G$1" x="104.14" y="33.02" rot="R90"/>
-<instance part="R39" gate="G$1" x="187.96" y="106.68" rot="R270"/>
+<instance part="R39" gate="G$1" x="187.96" y="106.68" rot="R270">
+<attribute name="PARTNO" x="187.96" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$70" gate="G$1" x="175.26" y="106.68" rot="R90"/>
 <instance part="U$71" gate="G$1" x="200.66" y="106.68" rot="R90"/>
-<instance part="R40" gate="G$1" x="220.98" y="106.68" rot="R270"/>
+<instance part="R40" gate="G$1" x="220.98" y="106.68" rot="R270">
+<attribute name="PARTNO" x="220.98" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$72" gate="G$1" x="208.28" y="106.68" rot="R90"/>
 <instance part="U$73" gate="G$1" x="233.68" y="106.68" rot="R90"/>
-<instance part="R41" gate="G$1" x="254" y="106.68" rot="R270"/>
+<instance part="R41" gate="G$1" x="254" y="106.68" rot="R270">
+<attribute name="PARTNO" x="254" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$74" gate="G$1" x="241.3" y="106.68" rot="R90"/>
 <instance part="U$75" gate="G$1" x="266.7" y="106.68" rot="R90"/>
-<instance part="R42" gate="G$1" x="287.02" y="106.68" rot="R270"/>
+<instance part="R42" gate="G$1" x="287.02" y="106.68" rot="R270">
+<attribute name="PARTNO" x="287.02" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$76" gate="G$1" x="274.32" y="106.68" rot="R90"/>
 <instance part="U$77" gate="G$1" x="299.72" y="106.68" rot="R90"/>
-<instance part="R43" gate="G$1" x="320.04" y="106.68" rot="R270"/>
+<instance part="R43" gate="G$1" x="320.04" y="106.68" rot="R270">
+<attribute name="PARTNO" x="320.04" y="106.68" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$78" gate="G$1" x="307.34" y="106.68" rot="R90"/>
 <instance part="U$79" gate="G$1" x="332.74" y="106.68" rot="R90"/>
 </instances>
@@ -6989,35 +7381,71 @@ www.vovtech.com
 <plain>
 </plain>
 <instances>
-<instance part="MIDI_IN1" gate="G$1" x="109.22" y="57.15" rot="R270"/>
-<instance part="MIDI_OUT1" gate="G$1" x="106.68" y="6.35" rot="R270"/>
-<instance part="R24" gate="G$1" x="86.36" y="39.37"/>
-<instance part="R25" gate="G$1" x="96.52" y="21.59"/>
-<instance part="R26" gate="G$1" x="96.52" y="-21.59"/>
+<instance part="MIDI_IN1" gate="G$1" x="109.22" y="57.15" rot="R270">
+<attribute name="PARTNO" x="109.22" y="57.15" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="MIDI_OUT1" gate="G$1" x="106.68" y="6.35" rot="R270">
+<attribute name="PARTNO" x="106.68" y="6.35" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R24" gate="G$1" x="86.36" y="39.37">
+<attribute name="PARTNO" x="86.36" y="39.37" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R25" gate="G$1" x="96.52" y="21.59">
+<attribute name="PARTNO" x="96.52" y="21.59" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R26" gate="G$1" x="96.52" y="-21.59">
+<attribute name="PARTNO" x="96.52" y="-21.59" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$36" gate="G$1" x="101.6" y="-13.97"/>
 <instance part="U$37" gate="G$1" x="86.36" y="-21.59" rot="R90"/>
-<instance part="D1" gate="G$1" x="78.74" y="59.69" rot="R270"/>
-<instance part="IC1" gate="G$1" x="55.88" y="57.15" rot="R180"/>
+<instance part="D1" gate="G$1" x="78.74" y="59.69" rot="R270">
+<attribute name="PARTNO" x="78.74" y="59.69" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="IC1" gate="G$1" x="55.88" y="57.15" rot="R180">
+<attribute name="PARTNO" x="55.88" y="57.15" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$38" gate="G$1" x="38.1" y="52.07" rot="R90"/>
-<instance part="R27" gate="G$1" x="50.8" y="74.93" rot="R90"/>
+<instance part="R27" gate="G$1" x="50.8" y="74.93" rot="R90">
+<attribute name="PARTNO" x="50.8" y="74.93" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$39" gate="G$1" x="50.8" y="85.09" rot="R180"/>
 <instance part="U$40" gate="G$1" x="38.1" y="62.23" rot="R270"/>
-<instance part="R28" gate="G$1" x="25.4" y="69.85" rot="R90"/>
+<instance part="R28" gate="G$1" x="25.4" y="69.85" rot="R90">
+<attribute name="PARTNO" x="25.4" y="69.85" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$41" gate="G$1" x="25.4" y="80.01"/>
-<instance part="MIDI_IN2" gate="G$1" x="223.52" y="57.15" rot="R270"/>
-<instance part="MIDI_OUT2" gate="G$1" x="220.98" y="6.35" rot="R270"/>
-<instance part="R29" gate="G$1" x="200.66" y="39.37"/>
-<instance part="R30" gate="G$1" x="210.82" y="21.59"/>
-<instance part="R31" gate="G$1" x="210.82" y="-21.59"/>
+<instance part="MIDI_IN2" gate="G$1" x="223.52" y="57.15" rot="R270">
+<attribute name="PARTNO" x="223.52" y="57.15" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="MIDI_OUT2" gate="G$1" x="220.98" y="6.35" rot="R270">
+<attribute name="PARTNO" x="220.98" y="6.35" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R29" gate="G$1" x="200.66" y="39.37">
+<attribute name="PARTNO" x="200.66" y="39.37" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R30" gate="G$1" x="210.82" y="21.59">
+<attribute name="PARTNO" x="210.82" y="21.59" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R31" gate="G$1" x="210.82" y="-21.59">
+<attribute name="PARTNO" x="210.82" y="-21.59" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$42" gate="G$1" x="215.9" y="-13.97"/>
 <instance part="U$43" gate="G$1" x="200.66" y="-21.59" rot="R90"/>
-<instance part="D2" gate="G$1" x="193.04" y="59.69" rot="R270"/>
-<instance part="IC2" gate="G$1" x="170.18" y="57.15" rot="R180"/>
+<instance part="D2" gate="G$1" x="193.04" y="59.69" rot="R270">
+<attribute name="PARTNO" x="193.04" y="59.69" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="IC2" gate="G$1" x="170.18" y="57.15" rot="R180">
+<attribute name="PARTNO" x="170.18" y="57.15" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$44" gate="G$1" x="152.4" y="52.07" rot="R90"/>
-<instance part="R32" gate="G$1" x="165.1" y="74.93" rot="R90"/>
+<instance part="R32" gate="G$1" x="165.1" y="74.93" rot="R90">
+<attribute name="PARTNO" x="165.1" y="74.93" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$45" gate="G$1" x="165.1" y="85.09" rot="R180"/>
 <instance part="U$46" gate="G$1" x="152.4" y="62.23" rot="R270"/>
-<instance part="R33" gate="G$1" x="139.7" y="69.85" rot="R90"/>
+<instance part="R33" gate="G$1" x="139.7" y="69.85" rot="R90">
+<attribute name="PARTNO" x="139.7" y="69.85" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$47" gate="G$1" x="139.7" y="80.01"/>
 </instances>
 <busses>
