@@ -3689,33 +3689,30 @@ T  12:00 View Angle
 W  Wide Temp (‐20°C ~ +70°C)
 RoHS Compliant
 www.newhavendisplay.com</description>
-<pad name="GND" x="23" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="V5" x="25" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="VDD" x="27" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="RS" x="29" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="R/W" x="31" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="E" x="33" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB0" x="35" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB1" x="37" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB2" x="39" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB3" x="41" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB4" x="43" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB5" x="45" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB6" x="47" y="16" drill="0.8" shape="long" rot="R90"/>
-<pad name="DB7" x="49" y="16" drill="0.8" shape="long" rot="R90"/>
-<wire x1="0" y1="18" x2="70" y2="18" width="0.127" layer="21"/>
-<wire x1="70" y1="18" x2="70" y2="0" width="0.127" layer="21"/>
-<wire x1="70" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="18" width="0.127" layer="21"/>
-<hole x="3.22" y="15.27" drill="0.6"/>
-<hole x="3.22" y="2.57" drill="0.6"/>
-<hole x="67.07" y="2.57" drill="0.6"/>
-<hole x="67.07" y="15.27" drill="0.6"/>
-<pad name="K" x="75" y="3.7" drill="1.2" shape="long" rot="R180"/>
-<pad name="A" x="75" y="14.3" drill="1.2" shape="long" rot="R180"/>
-<wire x1="77" y1="18" x2="77" y2="0" width="0.127" layer="21" style="dashdot"/>
-<wire x1="70" y1="0" x2="77" y2="0" width="0.127" layer="21" style="dashdot"/>
-<wire x1="70" y1="18" x2="77" y2="18" width="0.127" layer="21" style="dashdot"/>
+<pad name="GND" x="47.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="V5" x="45.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="VDD" x="43.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="RS" x="41.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="R/W" x="39.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="E" x="37.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB0" x="35.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB1" x="33.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB2" x="31.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB3" x="29.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB4" x="27.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB5" x="25.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB6" x="23.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="DB7" x="21.75" y="0" drill="0.8" shape="long" rot="R270"/>
+<pad name="K" x="-4.25" y="19.5" drill="2.4" shape="long"/>
+<pad name="A" x="-4.25" y="11" drill="2.4" shape="long"/>
+<wire x1="-5" y1="0" x2="-5" y2="6.5" width="0.127" layer="21" style="dashdot"/>
+<wire x1="69.5" y1="6.5" x2="-5" y2="6.5" width="0.127" layer="21" style="dashdot"/>
+<wire x1="69.5" y1="0" x2="-5" y2="0" width="0.127" layer="21" style="dashdot"/>
+<wire x1="-5" y1="0" x2="-5" y2="6.5" width="0.127" layer="21"/>
+<wire x1="-5" y1="6.5" x2="-5" y2="24" width="0.127" layer="21"/>
+<wire x1="-5" y1="24" x2="69.5" y2="24" width="0.127" layer="21"/>
+<wire x1="69.5" y1="24" x2="69.5" y2="6.5" width="0.127" layer="21"/>
+<wire x1="69.5" y1="6.5" x2="69.5" y2="0" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
