@@ -3703,8 +3703,8 @@ www.newhavendisplay.com</description>
 <pad name="DB5" x="25.75" y="0" drill="0.8" shape="long" rot="R270"/>
 <pad name="DB6" x="23.75" y="0" drill="0.8" shape="long" rot="R270"/>
 <pad name="DB7" x="21.75" y="0" drill="0.8" shape="long" rot="R270"/>
-<pad name="K" x="-4.25" y="19.5" drill="2.4" shape="long"/>
-<pad name="A" x="-4.25" y="11" drill="2.4" shape="long"/>
+<pad name="K" x="-4.25" y="19.5" drill="2.3"/>
+<pad name="A" x="-4.25" y="11" drill="2.3"/>
 <wire x1="-5" y1="0" x2="-5" y2="6.5" width="0.127" layer="21" style="dashdot"/>
 <wire x1="69.5" y1="6.5" x2="-5" y2="6.5" width="0.127" layer="21" style="dashdot"/>
 <wire x1="69.5" y1="0" x2="-5" y2="0" width="0.127" layer="21" style="dashdot"/>
